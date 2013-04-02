@@ -1,13 +1,12 @@
 <div class="rightdivsite">
   <div class="clear" style="height:14px"></div>
- <div class="videodiv">
-
-       <div class="fucher_cont">
+    <div class="videodiv">
+     <div class="fucher_cont">
       <div class="box"> 
-      <div class="box-heading">Company Registration </div></div>
+      <div class="box-heading">Investor Registration </div></div>
       <div class="box" >
 
-          <?php echo form_open('company/compregsave');?>
+          <?php echo form_open('company/investregsave');?>
 
             <fieldset>
               <legend>Please fill the form to complete the registration </legend>
@@ -24,19 +23,6 @@
                             'class' => 'label',
                         ); ?>
                         
-                        <?php $atts = array(
-                            'name' => 'introduction_investors',
-                            'id'   => 'introduction_investors',
-                            'rows' => '3',
-							'cols' => '35',
-                            'value' => set_value('introduction_investors'),
-                        ); ?>
-
-                         <p>
-                           <?php echo form_label('*First of all, please describe in 100 words how you would like to be introduced to investors?', 'introduction_investors', $latts); ?><br/>
-                           <?php echo form_textarea($atts); ?>
-                         </p>
-                         
                           <?php $options = array(
 							  'Mr'  => 'Mr',
 							  'Miss'    => 'Miss',
@@ -81,8 +67,28 @@
                         ); ?>
 
                         <div style="float:left;margin-bottom:10px">
-                           <?php echo form_label('*Company/Project Name:', 'company_name', $latts); ?><br/>
+                           <?php echo form_label('*Company:', 'company_name', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
+                        </div>
+                         <div style="float:left;margin-bottom:10px;width:100%">
+                       <?php echo form_label('Upload Photograph:', $latts); ?><br/>
+					  <?php $atts = array(
+                            'name' => 'photograph',
+                            'id'   => 'photograph',
+                            'size' => '35',
+                            'value' => set_value('photograph'),
+                        ); ?>
+                       <?php echo form_upload($atts); ?>
+                        </div>
+                       <div style="float:left;margin-bottom:10px;width:100%">
+                       <?php echo form_label('Upload company logo:', $latts); ?><br/>
+					  <?php $atts = array(
+                            'name' => 'company_logo',
+                            'id'   => 'company_logo',
+                            'size' => '35',
+                            'value' => set_value('company_logo'),
+                        ); ?>
+                       <?php echo form_upload($atts); ?>
                         </div>
 
                           <?php $type_options = array(
@@ -113,10 +119,10 @@
 								'Other' => 'Other'
 							); ?>
 
-                        <div style="float:left;margin-bottom:10px">
+                         <div style="float:left;margin-bottom:10px">
                            <?php echo form_label('*Type:', 'type', $latts); ?><br/>
                            <?php echo form_multiselect('type',$type_options,'',''); ?>
-                         </p>
+                         </div>
 
                          <?php $atts = array(
                             'name' => 'other',
@@ -184,6 +190,31 @@
                            <?php echo form_label('*Phone:', 'phone', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                          </div>
+                         
+                           <?php $atts = array(
+                            'name' => 'skype',
+                            'id'   => 'skype',
+                            'size' => '35',
+                            'value' => set_value('skype'),
+                        ); ?>
+ 						 <div style="float:left;margin-bottom:10px;">
+                           <?php echo form_label('Skype:', 'skype', $latts); ?><br/>
+                           <?php echo form_input($atts); ?>
+                         </div>
+                         
+                         
+                         <?php $atts = array(
+                            'name' => 'company_url',
+                            'id'   => 'company_url',
+                            'size' => '35',
+                            'value' => set_value('company_url'),
+                        ); ?>
+
+                        
+                         <div style="float:right;margin-bottom:10px;">
+                           <?php echo form_label('Company URL:', 'company_url', $latts); ?><br/>
+                           <?php echo form_input($atts); ?>
+                         </div>
                       
                           <?php $atts = array(
                             'name' => 'email1',
@@ -230,50 +261,7 @@
                            <?php echo form_label('Company Facebook Address:', 'facebook_url_company', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                         </div>
-                          <?php $atts = array(
-                            'name' => 'vkontekte_address_personal',
-                            'id'   => 'vkontekte_address_personal',
-                            'size' => '35',
-                            'value' => set_value('vkontekte_address_personal'),
-                        ); ?>
-
-                         <div style="float:left;margin-bottom:10px">
-                           <?php echo form_label('Personal Vkontekte Address:', 'vkontekte_address_personal', $latts); ?><br/>
-                           <?php echo form_input($atts); ?>
-                         </div>
-                          <?php $atts = array(
-                            'name' => 'vkontekte_address_company',
-                            'id'   => 'vkontekte_address_company',
-                            'size' => '35',
-                            'value' => set_value('vkontekte_address_company'),
-                        ); ?>
-                        <div style="float:right;margin-bottom:10px">
-                           <?php echo form_label('Company Vkontekte Address:', 'vkontekte_address_company', $latts); ?><br/>
-                           <?php echo form_input($atts); ?>
-                         </div>
-                             <?php $atts = array(
-                            'name' => 'odnoklassniki_address_personal',
-                            'id'   => 'odnoklassniki_address_personal',
-                            'size' => '35',
-                            'value' => set_value('odnoklassniki_address_personal'),
-                        ); ?>
-
-                         <div style="float:left;margin-bottom:10px">
-                           <?php echo form_label('Personal Odnoklassniki Address:', 'odnoklassniki_address_personal', $latts); ?><br/>
-                           <?php echo form_input($atts); ?>
-                         </div>
-                          <?php $atts = array(
-                            'name' => 'odnoklassniki_address_company',
-                            'id'   => 'odnoklassniki_address_company',
-                            'size' => '35',
-                            'value' => set_value('odnoklassniki_address_company'),
-                        ); ?>
-                      
-                        <div style="float:right;margin-bottom:10px">
-                           <?php echo form_label('Company Odnoklassniki Address:', 'odnoklassniki_address_company', $latts); ?><br/>
-                           <?php echo form_input($atts); ?>
-                        </div>
-                        
+                         
                          <?php $atts = array(
                             'name' => 'linkedin_url',
                             'id'   => 'linkedin_url',
@@ -302,88 +290,263 @@
 							'cols' => '60',
                             'value' => set_value('company_details'),
                         ); ?>
-                   		 <div style="float:left;margin-bottom:10px;width:100%;">
+                   		<div style="float:left;margin-bottom:10px;width:100%;">
                        <?php echo form_label('*Please describe in 500 words or less what makes your company or project exceptionally unique:', $latts); ?><br/>
                        <?php echo form_textarea($atts); ?>
                         </div>
                         <div style="float:left;width:100%;margin-bottom:10px;">  
-                           <?php echo form_label('Is your company registered?:', 'usertype', $latts); ?><br/>
-                           
-                          <?php $data = array(
-                            'name'        => 'is_company_registered',
-                            'id'          => 'true',
-                            'value'       => 'true',
-                            'checked'     => TRUE,
-                            );
-                          ?> 
-                          <span style="margin-top:10px; display:inline-block;"> <?php echo form_radio($data); ?></span>
-                          <span style="margin: 0 12px 0 4px; vertical-align: text-bottom;"> True </span>
-                    
-                          <?php $data = array(
-                            'name'        => 'is_company_registered',
-                            'id'          => 'false',
-                            'value'       => 'false',
-                            'checked'     => FALSE,
-                            );
-                          ?> 
-                          <span style="margin-top:10px; display:inline-block;"> <?php echo form_radio($data); ?></span>
-                          <span style="vertical-align: text-bottom;"> False </span>
-                        </div>
-                        <div style="float:left;margin-bottom:10px;width:100%">
-                       <?php echo form_label('*If so, please upload Company Registration Docs:
-', $latts); ?><br/>
-					  <?php $atts = array(
-                            'name' => 'company_docs',
-                            'id'   => 'company_docs',
+                           <?php echo form_label('State where company registered?:', 'usertype', $latts); ?><br/>
+                            <?php $atts = array(
+                            'name' => 'state_company_registered',
+                            'id'   => 'state_company_registered',
                             'size' => '35',
-                            'value' => set_value('company_docs'),
+                            'value' => set_value('state_company_registered'),
                         ); ?>
-                       <?php echo form_upload($atts); ?>
+                            <?php echo form_input($atts); ?>
+                           
+                         </div>
+                          <div style="float:left;width:100%;margin-bottom:10px;">  
+                           <?php echo form_label('* If not in US, please list  country and region that company is located in:', 'usertype', $latts); ?><br/> 
+						   <?php $atts = array(
+                            'name' => 'country',
+                            'id'   => 'country',
+                            'size' => '35',
+                            'value' => set_value('country'),
+                        ); ?>
+						   <?php echo form_input($atts); ?>
+                         </div>
+                           <?php $type_options = array(
+						   'Individual' => 'Individual',
+						   'Acclerator' => 'Acclerator',
+						   'Incubator' => 'Incubator',
+						   'Venture Capital Fund' => 'Venture Capital Fund',
+						   'Mutual Fund Manager' => 'Mutual Fund Manager',
+						   'Private financial analyst' =>  'Private financial analyst',
+						   'Broker/Institutional Investor' => 'Broker/Institutional Investor',
+						   'Government Fund' => 'Government Fund',
+							); ?>
+
+                         <div style="float:left;margin-bottom:10px;width:100%;">
+                           <?php echo form_label('*Company Type:', 'type', $latts); ?><br/>
+                           <?php echo form_multiselect('company_type',$type_options,'',''); ?>
+                         </div>
+                         
+                        <div style="float:left;margin-bottom:10px">
+                         <?php echo form_label('*Other Company Type:', 'type', $latts); ?><br/>
+                          <?php $atts = array(
+                            'name' => 'other_company_type',
+                            'id'   => 'other_company_type',
+                            'size' => '35',
+                            'value' => set_value('other_company_type'),
+                        ); ?>
+                          <?php echo form_input($atts); ?>
+                        
+                         </div>
+                        
+                         <div style="float:left;margin-bottom:10px">
+                         <?php echo form_label('*Current capitalization:', 'type', $latts); ?><br/>
+                          <?php $atts = array(
+                            'name' => 'current_capitalization',
+                            'id'   => 'current_capitalization',
+                            'size' => '10',
+                            'value' => set_value('current_capitalization'),
+                        ); ?>
+                          <?php echo form_input($atts); ?>
+       
+                        </div>
+                           <?php $atts = array(
+                            'name' => 'seeking_company',
+                            'id'   => 'seeking_company',
+                            'rows' => '7',
+							'cols' => '60',
+                            'value' => set_value('seeking_company'),
+                        ); ?>
+                        <div style="float:left;margin-bottom:10px;width:100%;">
+                       <?php echo form_label('*Please describe in 500 words the , as exactly as possible, the type of company you are seeking to invest in?', $latts); ?><br/>
+                       <?php echo form_textarea($atts); ?>
+                        </div>
+                        <div style="float:left;margin-bottom:10px">
+                         <?php echo form_label('*What size of investment are you seeking to make:?:', 'type', $latts); ?><br/>
+                          <?php $atts = array(
+                            'name' => 'investment_size',
+                            'id'   => 'investment_size',
+                            'size' => '20',
+                            'value' => set_value('investment_size'),
+                        ); ?>
+                          <?php echo form_input($atts); ?>
+       
+                        </div>
+                        <div style="float:left;margin-bottom:10px">
+                         <?php echo form_label('*What size of investment are you seeking to make:?:', 'type', $latts); ?><br/>
+                          <?php $atts = array(
+                            'name' => 'investment_size',
+                            'id'   => 'investment_size',
+                            'size' => '20',
+                            'value' => set_value('investment_size'),
+                        ); ?>
+                          <?php echo form_input($atts); ?>
+       
+                        </div>
+                        <br />
+                        <div style="float:left;margin-bottom:10px">
+                         <?php echo form_label('*Minimum:', 'type', $latts); ?><br/>
+                          <?php $atts = array(
+                            'name' => 'min_amt',
+                            'id'   => 'min_amt',
+                            'size' => '35',
+                            'value' => set_value('min_amt'),
+                        ); ?>
+                          <?php echo form_input($atts); ?>
+       
+                        </div>
+                        <div style="float:right;margin-bottom:10px;">
+                       <?php echo form_label('*Maximum', $latts); ?><br/>
+					  <?php $atts = array(
+                            'name' => 'max_amt',
+                            'id'   => 'max_amt',
+                            'size' => '35',
+                            'value' => set_value('max_amt'),
+                        ); ?>
+                       <?php echo form_input($atts); ?>
                         </div>
                        <div style="float:left;margin-bottom:10px;width:100%">
-                       <?php echo form_label('Business Plan Upload (if you have one):
-', $latts); ?><br/>
+                       <?php echo form_label('What type of ownership share would you ideally like to get for your investment?', $latts); ?><br/>
 					  <?php $atts = array(
-                            'name' => 'business_plans',
-                            'id'   => 'business_plans',
+                            'name' => 'ownership_share',
+                            'id'   => 'ownership_share',
                             'size' => '35',
-                            'value' => set_value('business_plans'),
+                            'value' => set_value('ownership_share'),
                         ); ?>
-                       <?php echo form_upload($atts); ?>
+                       <?php echo form_input($atts); ?>
                         </div>
                         
                         <div style="float:left;margin-bottom:10px;width:100%">
-                       <?php echo form_label('Financials Upload (any and all you may have):
+                       <?php echo form_label('*Is controlling percentage a must?:
 ', $latts); ?><br/>
 					  <?php $atts = array(
-                            'name' => 'financial_uploads',
-                            'id'   => 'financial_uploads',
+                            'name' => 'control_percentage',
+                            'id'   => 'control_percentage',
                             'size' => '35',
-                            'value' => set_value('financial_uploads'),
+                            'value' => set_value('control_percentage'),
                         ); ?>
-                       <?php echo form_upload($atts); ?>
+                       <?php echo form_input($atts); ?>
+                       
                         </div>
+                         <?php $atts = array(
+                            'name' => 'investor_details',
+                            'id'   => 'investor_details',
+                            'rows' => '7',
+							'cols' => '60',
+                            'value' => set_value('investor_details'),
+                        ); ?>
+                   		 <div style="float:left;margin-bottom:10px;width:100%;">
+                       <?php echo form_label('*If you would like to be a hands-on investor, please describe how you would like to be actively involved?', $latts); ?><br/>
+                       <?php echo form_textarea($atts); ?>
+                        </div>
+                        
+                          <?php $type_options = array(
+						   'Start-Ups with registration' => 'Start-Ups with registration',
+						   'Start-Ups without registration' => 'Start-Ups without registration',
+						   'Start-Ups' => 'Start-Ups',
+						   'Registered' => 'Registered',
+						   'Any' => 'Any',
+						  ); ?>
+                          
+                        <div style="float:left;margin-bottom:10px;width:100%;">
+                           <?php echo form_label('*Check below if you are interested in considering:', 'type', $latts); ?><br/>
+                           <?php echo form_multiselect('companies_looking',$type_options,'',''); ?>
+                        </div>
+                         <div style="float:left;margin-bottom:10px;width:100%">
+                       <?php echo form_label('*Experience in Russia/C.I.S, if applicable:
+', $latts); ?><br/>
+					  <?php $atts = array(
+                            'name' => 'experience_in_russia',
+                            'id'   => 'experience_in_russia',
+                            'size' => '35',
+                            'value' => set_value('experience_in_russia'),
+                        ); ?>
+                       <?php echo form_input($atts); ?>
+                       
+                        </div>
+                        
+                        <div style="float:left;margin-bottom:10px;width:100%">
+                       <?php echo form_label('*Experience in investment and early stage technology/new media companies, if applicable:', $latts); ?><br/>
+					  <?php $atts = array(
+                            'name' => 'experience_in_investment',
+                            'id'   => 'experience_in_investment',
+                            'size' => '35',
+                            'value' => set_value('experience_in_investment'),
+                        ); ?>
+                       <?php echo form_input($atts); ?>
+                       
+                        </div>
+
+						<div style="float:left;margin-bottom:10px;width:100%">
+                       <?php echo form_label('*Current companies in your portfolio?', $latts); ?><br/>
+					  <?php $atts = array(
+                            'name' => 'portfolio',
+                            'id'   => 'portfolio',
+                            'size' => '35',
+                            'value' => set_value('portfolio'),
+                        ); ?>
+                       <?php echo form_textarea($atts); ?>
+                       
+                        </div>
+                        
+                        <div style="float:left;margin-bottom:10px;width:100%">
+                       <?php echo form_label('*Average ROI in terms of time and percent?', $latts); ?><br/>
+					  <?php $atts = array(
+                            'name' => 'average_roi',
+                            'id'   => 'average_roi',
+                            'size' => '35',
+                            'value' => set_value('average_roi'),
+                        ); ?>
+                       <?php echo form_input($atts); ?>
+                       
+                        </div>
+                          <div style="float:left;margin-bottom:10px;width:100%">
+                       <?php echo form_label('*What is your ideal time period for seeing such a return? ', $latts); ?><br/>
+					  <?php $atts = array(
+                            'name' => 'time_for_returns',
+                            'id'   => 'time_for_returns',
+                            'size' => '35',
+                            'value' => set_value('time_for_returns'),
+                        ); ?>
+                       <?php echo form_input($atts); ?>
+                       
+                        </div>
+                        
+                       <div style="float:left;margin-bottom:10px;width:100%">
+                       <?php echo form_label('*Would you like the return to occur based on additional investment, a buy-out, organic growth, or is this insignificant?', $latts); ?><br/>
+					  <?php $atts = array(
+                            'name' => 'about_investment',
+                            'id'   => 'about_investment',
+                            'size' => '35',
+                            'value' => set_value('about_investment'),
+                        ); ?>
+                       <?php echo form_input($atts); ?>
+                       </div>
                        
                            <?php $atts = array(
-                            'name' => 'min_amount_requested',
-                            'id'   => 'min_amount_requested',
+                            'name' => 'investing_experience',
+                            'id'   => 'investing_experience',
                             'size' => '35',
-                            'value' => set_value('min_amount_requested'),
+                            'value' => set_value('investing_experience'),
                         ); ?>
                       
                         <div style="float:right;margin-bottom:10px;width:100%;">
-                           <?php echo form_label('*Minimum Investment sum requested:', 'odnoklassniki_address_company', $latts); ?><br/>
+                           <?php echo form_label('*Please describe the positives and negatives of your experience in the region and in investing in tech/media companies, if applicable:', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                         </div>
                           <?php $atts = array(
-                            'name' => 'investment_towards',
-                            'id'   => 'investment_towards',
-                            'size' => '70',
-                            'value' => set_value('investment_towards'),
+                            'name' => 'ratings',
+                            'id'   => 'ratings',
+                            'size' => '15',
+                            'value' => set_value('ratings'),
                         ); ?>
                       
                         <div style="float:right;margin-bottom:10px;width:100%;">
-                           <?php echo form_label('*Investment will go towards:', 'investment_towards', $latts); ?><br/>
+                           <?php echo form_label('*On a scale from 1 to 5, with one being completely flexible to 5 being strictly conservative, what type of investor would you describe yourself as', 'ratings', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                         </div>
                         <div style="float:left;width:100%;margin-bottom:10px;">  
@@ -410,10 +573,10 @@
                           <span style="vertical-align: text-bottom;"> False </span>
                         </div>
                         <div style="float:left;width:100%;margin-bottom:10px;">  
-                           <?php echo form_label('*Are you interested in participating in on-line courses about business development?', 'interested_in_bd', $latts); ?><br/>
+                           <?php echo form_label('*Will you only consider projects from an experienced management team or board that has shown past successes?', 'interested_in_bd', $latts); ?><br/>
                            
                           <?php $data = array(
-                            'name'        => 'interested_in_bd',
+                            'name'        => 'project_consideration',
                             'id'          => 'true',
                             'value'       => 'true',
                             'checked'     => TRUE,
@@ -423,7 +586,7 @@
                           <span style="margin: 0 12px 0 4px; vertical-align: text-bottom;"> True </span>
                     
                           <?php $data = array(
-                            'name'        => 'interested_in_bd',
+                            'name'        => 'project_consideration',
                             'id'          => 'false',
                             'value'       => 'false',
                             'checked'     => FALSE,
@@ -433,224 +596,60 @@
                           <span style="vertical-align: text-bottom;"> False </span>
                         </div>
                          <div style="float:left;width:100%;margin-bottom:10px;">  
-                         IF YOU SAID YES, PLEASE CHECK THIS BOX TO ACKNOWLEDGE THE FACT THAT, DURING YOUR CROWD-FUNDING SESSION, ALL YOUR INFORMATION, EXCEPT CONTACT DETAILS WILL BE ON DISPLAY TO THE PUBLIC AND ALL FUNDERS WILL RECEIIVE YOUR CONTACT DETAILS AFTER THE FUNDING.  
-                          
+                           <?php echo form_label('*Would you want to consider the option of having 1 or 2 like-minded partners?.  If ever this becomes the case, do not hesitate to write to partnerme@speedfundrussia.com.', 'partners_consideration', $latts); ?><br/>
+                           
+                          <?php $data = array(
+                            'name'        => 'partners_consideration',
+                            'id'          => 'true',
+                            'value'       => 'true',
+                            'checked'     => TRUE,
+                            );
+                          ?> 
+                          <span style="margin-top:10px; display:inline-block;"> <?php echo form_radio($data); ?></span>
+                          <span style="margin: 0 12px 0 4px; vertical-align: text-bottom;"> True </span>
+                    
+                          <?php $data = array(
+                            'name'        => 'partners_consideration',
+                            'id'          => 'false',
+                            'value'       => 'false',
+                            'checked'     => FALSE,
+                            );
+                          ?> 
+                          <span style="margin-top:10px; display:inline-block;"> <?php echo form_radio($data); ?></span>
+                          <span style="vertical-align: text-bottom;"> False </span>
                         </div>
-                           <?php $investor_options = array(
-									'Individual'=>'Individual',
-									'Group' => 'Group',
-									'Incubator' => 'Incubator',
-									'Accelerator' => 'Accelerator',
-									'Venture capital fund' => 'Venture capital fund',
-									'Institutional investor' => 'Institutional investor',
-									'Experienced in sector' => 'Experienced in sector',
-									'Experienced in country' => 'Experienced in country',
-									'Region' => 'Region',
-									'Any' => 'Any',
-							
-							); ?>
-
-                           <div style="float:left;width:100%;margin-bottom:10px;"> 
-                           <?php echo form_label('*Investor preference :', 'investor_preference', $latts); ?><br/>
-                           <?php echo form_multiselect('investor_preference',$investor_options,'',''); ?>
-                         </div>
-                          <?php $atts = array(
-                            'name' => 'ideal_investor',
-                            'id'   => 'ideal_investor',
-                            'rows' => '4',
-							'cols' => '50',
-                            'value' => set_value('ideal_investor'),
-                        ); ?>
-
-                        <div style="float:left;width:100%;margin-bottom:10px;"> 
-                           <?php echo form_label('*Please describe your ideal investor in detail (200 words or less)', $latts); ?><br/>
-                           <?php echo form_textarea($atts); ?>
-                       </div>
-                      <div style="float:left;width:100%;margin-bottom:10px;"> 
-                           <?php echo form_label('If you do not have a business plan/financials or they do not include the following information, please answer:)', $latts); ?><br/>
-                      </div>
-                     <div style="float:left;width:100%;margin-bottom:10px;"> 
-                           <?php echo form_label('*Bios and pics of Main Players, both Listed in Registration Material (and otheriwise) )', $latts); ?><br/>
-                            <?php $atts = array(
-                            'name' => 'bios_pics1',
-                            'id'   => 'bios_pics1',
-                            'size' => '35',
-                            'value' => set_value('bios_pics1'),
-                        ); ?>
-                       <?php echo form_upload($atts); ?>
+                        <div style="float:left;margin-bottom:10px;width:100%;">
+                       <?php echo form_label('*What companies from the region have you heard about and have certain interest in? ', $latts); ?><br/>
                         <?php $atts = array(
-                            'name' => 'bios_pics2',
-                            'id'   => 'bios_pics2',
+                            'name' => 'companies_intrested_in',
+                            'id'   => 'companies_intrested_in',
                             'size' => '35',
-                            'value' => set_value('bios_pics2'),
+                            'value' => set_value('companies_intrested_in'),
                         ); ?>
-                       <?php echo form_upload($atts); ?>
+                       <?php echo form_textarea($atts); ?>
+                        </div>
+                         <div style="float:left;margin-bottom:10px;width:100%;">
+                       <?php echo form_label('*What investors/investment strategies as concerns early-stage media and tech companies or, better yet, early stage tech and media companies in the region, do you have particular respect for and why? ', $latts); ?><br/>
                         <?php $atts = array(
-                            'name' => 'bios_pics3',
-                            'id'   => 'bios_pics3',
+                            'name' => 'investment_strategies',
+                            'id'   => 'investment_strategies',
                             'size' => '35',
-                            'value' => set_value('bios_pics3'),
+                            'value' => set_value('investment_strategies'),
                         ); ?>
-                       <?php echo form_upload($atts); ?>
-                        <?php $atts = array(
-                            'name' => 'bios_pics4',
-                            'id'   => 'bios_pics4',
-                            'size' => '35',
-                            'value' => set_value('bios_pics4'),
-                        ); ?>
-                       <?php echo form_upload($atts); ?>
-                        <?php $atts = array(
-                            'name' => 'bios_pics5',
-                            'id'   => 'bios_pics5',
-                            'size' => '35',
-                            'value' => set_value('bios_pics5'),
-                        ); ?>
-                       <?php echo form_upload($atts); ?>
-                      </div> 
-                         <?php $atts = array(
-                            'name' => 'strategy_details',
-                            'id'   => 'strategy_details',
-                            'rows' => '5',
-							'cols' => 60,
-                            'value' => set_value('strategy_details'),
-                        ); ?>
-                      <div style="float:left;width:100%;margin-bottom:10px;"> 
-                           <?php echo form_label('Brief strategy description:', $latts); ?><br/>
-                           <?php echo form_textarea($atts); ?>
-                       </div> 
-                          <?php $atts = array(
-                            'name' => 'current_valuation',
-                            'id'   => 'current_valuation',
-                            'rows' => '5',
-							'cols' => 60,
-                            'value' => set_value('current_valuation'),
-                        ); ?>
-                      <div style="float:left;width:100%;margin-bottom:10px;"> 
-                           <?php echo form_label('What is your current valuation you are attaching to your company/project and how have you roughly determined this?', $latts); ?><br/>
-                           <?php echo form_textarea($atts); ?>
-                       </div> 
-                         <?php $atts = array(
-                            'name' => 'major_assets',
-                            'id'   => 'major_assets',
-                            'rows' => '5',
-							'cols' => 60,
-                            'value' => set_value('major_assets'),
-                        ); ?>
-                      <div style="float:left;width:100%;margin-bottom:10px;"> 
-                           <?php echo form_label('*What are its major existing assets?:', $latts); ?><br/>
-                           <?php echo form_textarea($atts); ?>
-                       </div> 
-                      <div style="float:left;width:100%;margin-bottom:10px;"> 
-                           <?php echo form_label('*Please upload all marketing materials you have for your project/company, including videos, slide presentations, VUIs, etc.', $latts); ?><br/>
-                            <?php $atts = array(
-                            'name' => 'marketing_material1',
-                            'id'   => 'marketing_material1',
-                            'size' => '35',
-                            'value' => set_value('marketing_material1'),
-                        ); ?>
-                       <?php echo form_upload($atts); ?>
-                        <?php $atts = array(
-                            'name' => 'marketing_material2',
-                            'id'   => 'marketing_material2',
-                            'size' => '35',
-                            'value' => set_value('marketing_material2'),
-                        ); ?>
-                       <?php echo form_upload($atts); ?>
-                        <?php $atts = array(
-                            'name' => 'marketing_material3',
-                            'id'   => 'marketing_material3',
-                            'size' => '35',
-                            'value' => set_value('marketing_material3'),
-                        ); ?>
-                       <?php echo form_upload($atts); ?>
-                        <?php $atts = array(
-                            'name' => 'marketing_material4',
-                            'id'   => 'marketing_material4',
-                            'size' => '35',
-                            'value' => set_value('marketing_material4'),
-                        ); ?>
-                       <?php echo form_upload($atts); ?>
-                        <?php $atts = array(
-                            'name' => 'marketing_material5',
-                            'id'   => 'marketing_material5',
-                            'size' => '35',
-                            'value' => set_value('marketing_material5'),
-                        ); ?>
-                       <?php echo form_upload($atts); ?>
-                      </div> 
-                      <div style="float:left;width:100%;margin-bottom:10px;"> 
-                           <?php echo form_label('*Please include all positive press/feedback from professionals you have about your company .', $latts); ?><br/>
-                            <?php $atts = array(
-                            'name' => 'feedback_upload',
-                            'id'   => 'feedback_upload',
-                            'size' => '35',
-                            'value' => set_value('feedback_upload'),
-                        ); ?>
-                       <?php echo form_upload($atts); ?>
-                        <?php $atts = array(
-                            'name' => 'feedback_text',
-                            'id'   => 'feedback_text',
-                            'rows' => '5',
-							'cols' => 60,
-                            'value' => set_value('feedback_text'),
-                        ); ?>
-                         <br/>
-                           <?php echo form_textarea($atts); ?>
-                      </div> 
-                      
-                      <div style="float:left;width:100%;margin-bottom:10px;"> 
-                           <?php echo form_label('*What are you short term goals for the company/project company?.', $latts); ?><br/>
-                          
-                        <?php $atts = array(
-                            'name' => 'short_term_goals',
-                            'id'   => 'short_term_goals',
-                            'rows' => '5',
-							'cols' => 60,
-                            'value' => set_value('short_term_goals'),
-                        ); ?>
-                         <br/>
-                           <?php echo form_textarea($atts); ?>
-                      </div> 
-                      <div style="float:left;width:100%;margin-bottom:10px;"> 
-                           <?php echo form_label('*What companies/entrepreneurs do you emulate?.', $latts); ?><br/>
-                          
-                        <?php $atts = array(
-                            'name' => 'companies_you_emulate',
-                            'id'   => 'companies_you_emulate',
-                            'rows' => '5',
-							'cols' => 60,
-                            'value' => set_value('companies_you_emulate'),
-                        ); ?>
-                         <br/>
-                           <?php echo form_textarea($atts); ?>
-                      </div> 
-                       <div style="float:left;width:100%;margin-bottom:10px;"> 
-                           <?php echo form_label('*What companies would you consider to be competitors to your own?', $latts); ?><br/>
-                          
+                       <?php echo form_textarea($atts); ?>
+                        </div>
+                        
+                         <div style="float:left;margin-bottom:10px;width:100%;">
+                       <?php echo form_label('*What investors/firms would you consider to be competitors to your own?', $latts); ?><br/>
                         <?php $atts = array(
                             'name' => 'competitors',
                             'id'   => 'competitors',
-                            'rows' => '5',
-							'cols' => 60,
+                            'size' => '35',
                             'value' => set_value('competitors'),
                         ); ?>
-                         <br/>
-                           <?php echo form_textarea($atts); ?>
-                      </div> 
-                      
-                       <div style="float:left;width:100%;margin-bottom:10px;"> 
-                           <?php echo form_label('*What companies would you consider to be competitors to your own?', $latts); ?><br/>
-                          
-                        <?php $atts = array(
-                            'name' => 'market_research',
-                            'id'   => 'market_research',
-                            'rows' => '5',
-							'cols' => 60,
-                            'value' => set_value('market_research'),
-                        ); ?>
-                         <br/>
-                           <?php echo form_textarea($atts); ?>
-                      </div> 
+                       <?php echo form_textarea($atts); ?>
+                        </div>
+                        
 
                        <?php $atts = array(
                               'name'    => 'companyreg',
