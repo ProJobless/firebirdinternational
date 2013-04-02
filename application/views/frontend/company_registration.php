@@ -1,3 +1,358 @@
+<link rel="stylesheet" href="public/admin/css/screenuser.css?v=1" type="text/css" media="screen" title="default" />
+<!--[if IE]>
+<link rel="stylesheet" media="all" type="text/css" href="css/pro_dropline_ie.css" />
+<![endif]-->
+<!--  checkbox styling script -->
+<script src="public/admin/js/jquery/ui.core.js" type="text/javascript"></script>
+<script src="public/admin/js/jquery/ui.checkbox.js" type="text/javascript"></script>
+<script src="public/admin/js/jquery/jquery.bind.js" type="text/javascript"></script>
+<script src="public/admin/js/jquery/jquery_main.js"  type="text/javascript"></script>
+<script src="public/admin/js/jquery/jquery.validate.js"  type="text/javascript"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {	
+
+	var container = $('div.error-inner');
+	var validator1 = $("#myform").validate({
+	                    //FOR THIS Option You will have to use jquery.metadata.js 
+	//highlight:false,
+	//unhighlight:false,
+	rules: {
+		introduction_for_investors:{
+			required: true
+		},
+		title:{
+			required: true
+		},
+		is_fname_confidential: {
+			required: true
+		},
+		first_name: {
+			required: true
+		},
+		is_lname_confidential: {
+			required: true
+		},
+		last_name: {
+			required: true
+		},
+		company_name: {
+			required: true
+		 },
+		other: {
+			required: true
+		},
+		address: {
+			required: true
+		},
+		city: {
+			required: true
+		},
+		state: {
+			required: true
+		},
+		zipcode: {
+			required: true
+		},
+		phone: {
+			required: true,
+			 minlength: 10,
+			 number : true
+		},
+		email1: {
+			required: true,
+			email: true 
+		},
+		email2: {
+				email: true 	
+				},
+		facebook_url_personal: {
+			required: true,
+			url: true,		
+					},	
+		vkontekte_address_personal: {
+			required: true,
+			url: true,
+			},
+		facebook_url_company: {
+			required: true,
+			url: true,
+			},
+	odnoklassniki_address_personal: {
+			required: true,
+			url: true,
+			},
+		  vkontekte_address_company: {
+			required: true,
+			url: true,
+			},
+			linkedin_url: {
+			required: true,
+			url: true,
+			},
+			odnoklassniki_address_company: {
+			required: true,
+			url: true,
+			},
+			twitter: {
+			required: true,
+			url: true,
+			},
+			company_details:{
+			required: true
+		},
+		company_docs:{
+			required: true,
+					},
+		business_plans:{
+			required: true,
+					},			
+		financial_uploads:{
+			required: true,
+					},
+		min_amount_requested:{
+			required: true,
+		investment_towards:{
+			required: true,
+					},					},
+		ideal_investor:{
+			required: true,
+					},
+	bios_pics1:{
+			required: true,
+					},
+	bios_pics2:{
+		required: true,
+		},
+		bios_pics3:{
+		required: true,
+		},
+		bios_pics4:{
+		required: true,
+		},
+		bios_pics5:{
+		required: true,
+		},
+		strategy_details:{
+		required: true,
+		},
+		current_valuation:{
+		required: true,
+		},
+		major_assets:{
+		required: true,
+		},
+		marketing_material1:{
+		required: true,
+		},
+		marketing_material2:{
+		required: true,
+		},
+		marketing_material3:{
+		required: true,
+		},
+		marketing_material4:{
+		required: true,
+		},
+		marketing_material5:{
+		required: true,
+		},
+		feedback_upload:{
+		required: true,
+		},
+		feedback_text:{
+		required: true,
+		},
+		short_term_goals:{
+		required: true,
+		},
+		competitors:{
+		required: true,
+		},
+		companies_you_emulate:{
+		required: true,
+		},
+		market_research:{
+		required: true,
+		},
+		},
+		
+		
+
+	messages:{
+	
+	introduction_for_investors: {
+			required: "<td><div class='error-left'></div><div class='error-inner'>This field is required.</div></td>"
+		},
+		title:{
+			required: "<td><div class='error-left'></div><div class='error-inner'>This field is required.</div></td>"
+		},
+		is_fname_confidential:{
+			required: "<td><div class='error-left'></div><div class='error-inner'>This field is required.</div></td>"
+		},
+	   first_name:{
+			required: "<td><div class='error-left'></div><div class='error-inner'>The first_name field is required.</div></td>"
+		},
+		is_lname_confidential:{
+			required: "<td><div class='error-left'></div><div class='error-inner'>This field is required.</div></td>"
+		},
+		last_name:{
+			required: "<td><div class='error-left'></div><div class='error-inner'>The last_name field is required.</div></td>"
+		},
+		company_name:{
+			required: "<td><div class='error-left'></div><div class='error-inner'>The last_name field is required.</div></td>"
+		},
+		other: {
+			required: "<td><div class='error-left'></div><div class='error-inner'>This field is required.</div></td>"
+		},
+
+		address:{
+			required: "<td><div class='error-left'></div><div class='error-inner'>This field is required.</div></td>"
+		},
+		city: {
+			required: "<td><div class='error-left'></div><div class='error-inner'>The city field is required.</div></td>"
+		 },
+		state: {
+			required: "<td><div class='error-left'></div><div class='error-inner'>The city field is required.</div></td>"
+		},
+	zipcode: {
+			required: "<td><div class='error-left'></div><div class='error-inner'>The city field is required.</div></td>"
+				},
+		phone: {
+			required: "<td><div class='error-left'></div><div class='error-inner'>The city field is required.</div></td>",
+			 minlength: "<td><div class='error-left'></div><div class='error-inner'>please  enter atleast 10 charecter Phone number.</div></td>",
+			number : "<td><div class='error-left'></div><div class='error-inner'>please  enter a valid Phone number</div></td>"
+				}, 
+		email1:{
+              required: "<td><div class='error-left'></div><div class='error-inner'>The  field is required.</div></td>",
+              email:    "<td><div class='error-left'></div><div class='error-inner'>please enter a valid email address.</div></td>",
+       		    },	
+		email2: {
+				email: "<td><div class='error-left'></div><div class='error-inner'>please enter a valid email address.</div></td>",	
+				},
+	facebook_url_personal: {
+			required: "<td><div class='error-left'></div><div class='error-inner'>The  field is required.</div></td>",
+			url: "<td><div class='error-left'></div><div class='error-inner'>Please enter the valid url.</div></td>",
+		},
+	 vkontekte_address_personal: {
+			required: "<td><div class='error-left'></div><div class='error-inner'>The  field is required.</div></td>",
+			url: "<td><div class='error-left'></div><div class='error-inner'>Please enter the valid url.</div></td>",
+			},
+	facebook_url_company: {
+		required: "<td><div class='error-left'></div><div class='error-inner'>The  field is required.</div></td>",
+			url: "<td><div class='error-left'></div><div class='error-inner'>Please enter the valid url.</div></td>",
+							},
+	odnoklassniki_address_personal: {
+			required: "<td><div class='error-left'></div><div class='error-inner'>The  field is required.</div></td>",
+			url: "<td><div class='error-left'></div><div class='error-inner'>Please enter the valid url.</div></td>",
+			},
+	vkontekte_address_company: {
+	required: "<td><div class='error-left'></div><div class='error-inner'>The  field is required.</div></td>",
+	url: "<td><div class='error-left'></div><div class='error-inner'>Please enter the valid url.</div></td>",
+	},
+	linkedin_url: {
+		    required: "<td><div class='error-left'></div><div class='error-inner'>The  field is required.</div></td>",
+			url: "<td><div class='error-left'></div><div class='error-inner'>Please enter the valid url.</div></td>",
+			},
+		 odnoklassniki_address_company: {
+					required: "<td><div class='error-left'></div><div class='error-inner'>The  field is required.</div></td>",
+					url: "<td><div class='error-left'></div><div class='error-inner'>Please enter the valid url.</div></td>",
+					},
+			twitter: {
+		    required: "<td><div class='error-left'></div><div class='error-inner'>The  field is required.</div></td>",
+			url: "<td><div class='error-left'></div><div class='error-inner'>Please enter the valid url.</div></td>",
+			},
+	company_details:{
+			required: "<td><div class='error-left'></div><div class='error-inner'>The  field is required.</div></td>",
+					},
+	  company_docs:{
+			required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+					},
+		business_plans:{
+			required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+					},
+		financial_uploads:{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		min_amount_requested:{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		investment_towards:{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		ideal_investor:{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		bios_pics1:{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		bios_pics2:{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		bios_pics3:{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		bios_pics4:{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		bios_pics5:{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		strategy_details:{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		current_valuation:{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		major_assets:{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		marketing_material1:{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		marketing_material2:{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		marketing_material3:{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		marketing_material4:{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		marketing_material5:{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		feedback_upload :{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		feedback_text :{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		short_term_goals :{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		competitors:{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		companies_you_emulate :{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},
+		market_research :{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'>The  field is required.</div></td>",
+		},				
+	} 
+		 
+});
+	 
+	
+});
+</script>
+<!--  styled select box script version 2 --> 
+
+</head>
+
+
 <div class="rightdivsite">
   <div class="clear" style="height:14px"></div>
  <div class="videodiv">
@@ -7,7 +362,9 @@
       <div class="box-heading">Company Registration </div></div>
       <div class="box" >
 
-          <?php echo form_open('company/compregsave');?>
+          <?php 
+		  $attributes = array('class' => 'company', 'id' => 'myform');
+		  echo form_open('company/compregsave',$attributes);?>
 
             <fieldset>
               <legend>Please fill the form to complete the registration </legend>
@@ -45,14 +402,17 @@
                          
                           <?php $options = array(
 							  'Mr'  => 'Mr',
-							  'Miss'    => 'Miss',
-							  'Mrs'   => 'Mrs',
+							  'Miss'=> 'Miss',
+							  'Mrs' => 'Mrs',
 							  'Dr' => 'Dr',
 							); ?>
 
                          <p>
-                           <?php echo form_label('*Title:', 'title'); ?><br/>
-                           <?php echo form_dropdown('title',$options,'Mr'); ?>
+                         
+                           <?php
+						   $attributes = array('class' => 'title', 'id' => 'title');
+						    echo form_label('*Title:', 'title'); ?><br/>
+                           <?php echo form_dropdown('title',$options,'Mr',$attributes); ?>
                          </p>
 
                          <?php $atts = array(
@@ -120,6 +480,7 @@
                         </div>
 
                           <?php $type_options = array(
+								
 								'New Media' => 'New Media', 
 								'Design and Publishing Software' => 'Design and Publishing Software', 
 								'Digital Advertising/Marketing Technology' => 'Digital Advertising/Marketing Technology', 
@@ -149,7 +510,9 @@
 
                         <div style="float:left;margin-bottom:10px">
                            <?php echo form_label('*Type:', 'type', $latts); ?><br/>
-                           <?php echo form_multiselect('type',$type_options,'',''); ?>
+                           <?php 
+						   $attributes = array('class' => 'type', 'id' => 'type');
+						   echo form_multiselect('type',$type_options,'Individual','', $attributes); ?>
                          </p>
 
                          <?php $atts = array(
