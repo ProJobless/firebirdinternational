@@ -81,7 +81,7 @@
 		
 		<div class="nav-divider">&nbsp;</div>
 		                    
-		<?php if($currentFile=='user_details' || $currentFile=='category_details'  || $currentFile=='project_details'  || $currentFile=='page_list'  || $currentFile=='event_view'  || $currentFile1=='details'  || $currentFile1=='edit_user'  || $currentFile1=='view_category'  || $currentFile1=='view_project'  || $currentFile1=='edit_project'  || $currentFile1=='edit_category'  || $currentFile1=='view_page'  || $currentFile1=='edit_page'  || $currentFile1=='event_details'  || $currentFile1=='edit_event' ||  $currentFile1=='invite_user' || $currentFile=='add_event' || $currentFile=='add_project' || $currentFile=='add_page' || $currentFile=='contactus_details' || $currentFile1=='contact_view') {  $select_sub_show='select_sub show';
+		<?php if($currentFile=='user_details' || $currentFile=='category_details'  || $currentFile=='project_details'  || $currentFile=='page_list'  || $currentFile=='event_view'  || $currentFile1=='details'  || $currentFile1=='edit_user'  || $currentFile1=='view_category'  || $currentFile1=='view_project'  || $currentFile1=='edit_project'  || $currentFile1=='edit_category'  || $currentFile1=='view_page'  || $currentFile1=='edit_page'  || $currentFile1=='event_details'  || $currentFile1=='edit_event' ||  $currentFile1=='invite_user' || $currentFile=='add_event' || $currentFile=='add_project' || $currentFile=='add_page' || $currentFile=='contactus_details' || $currentFile1=='contact_view' || $currentFile=='company_details' || $currentFile1=='company_view' || $currentFile1=='edit_company' || $currentFile=='investor_details' || $currentFile1=='investor_view' || $currentFile1=='edit_investor') {  $select_sub_show='select_sub show';
    ?>  <ul class="current">  <?php } else { $select_sub_show='sub_show'; ?><ul class="select"> <?php } ?>
          
         
@@ -94,7 +94,11 @@
 				<?php if($currentFile=='project_details' || $currentFile1=='view_project' || $currentFile1=='edit_project' || $currentFile=='add_project'  ) { ?> <li class="sub_show" ><?php } else { ?> <li> <?php } ?><a href="admin/project_details">Projects</a></li>
                 <?php if($currentFile=='page_list' || $currentFile1=='view_page' || $currentFile1=='edit_page' || $currentFile=='add_page') { ?> <li class="sub_show" ><?php } else { ?> <li> <?php } ?><a href="admin/page_list">Pages</a></li>
                  <?php if($currentFile=='event_view' || $currentFile1=='invite_user' || $currentFile1=='event_details' || $currentFile1=='edit_event' || $currentFile=='add_event') { ?> <li class="sub_show" ><?php } else { ?> <li> <?php } ?><a href="admin/event_view">Event</a></li>
-                 <?php if($currentFile=='contactus_details' || $currentFile1=='contact_view' ) { ?> <li class="sub_show" ><?php } else { ?> <li> <?php } ?><a href="admin/contactus_details">Contact us Details</a></li>
+                 <?php if($currentFile=='contactus_details' || $currentFile1=='contact_view' ) { ?> <li class="sub_show" ><?php } else { ?> <li> <?php } ?><a href="admin/contactus_details">ContactUs</a></li>
+                 
+                 <?php if($currentFile=='company_details' || $currentFile1=='company_view' || $currentFile1=='edit_company' ) { ?> <li class="sub_show" ><?php } else { ?> <li> <?php } ?><a href="admin/company_details">Comapny</a></li>
+                 
+                  <?php if($currentFile=='investor_details' || $currentFile1=='investor_view' || $currentFile1=='edit_investor' ) { ?> <li class="sub_show" ><?php } else { ?> <li> <?php } ?><a href="admin/investor_details">Investor</a></li>
                  
 			</ul>
             <?php } ?>

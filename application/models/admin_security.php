@@ -90,7 +90,7 @@ class Admin_security extends CI_Model {
 	
 	
 	// To fetch list of users in manage user section
-	function user_list($user='',$count=TRUE,$orderby=FALSE,$order=FALSE,$offset=FALSE,$limit=50)
+	function user_list($user='',$count=TRUE,$orderby=FALSE,$order=FALSE,$offset=FALSE,$limit=20)
 	{
 		// Declaring condition
 		$condition='';
@@ -135,9 +135,96 @@ class Admin_security extends CI_Model {
 	}	
 	
 	
+		// To fetch list of comapny in manage user section
+	function company_list($user='',$count=TRUE,$orderby=FALSE,$order=FALSE,$offset=FALSE,$limit=20)
+	{
+		// Declaring condition
+		// Declaring condition
+		$condition='';
+		 
+		// Making condition if filter is not empty
+		if(!empty($user))
+		{
+			$condition = " WHERE  `company_registration`.`title`  LIKE '$title%' OR `company_registration`.`slug` LIKE '$title%'";
+		}  
+		
+		// Making condition if category id is not empty
+		
+		
+		// Checking if it is a request to count the total data for pagination
+		if($count)
+		{
+			$total=$this->db->query("SELECT COUNT(`company_registration`.`id`) AS total FROM `company_registration`");
+			$total=$total->row();
+			return $total->total;
+		}
+		
+		// Making limit query based on parameters
+		$limit_query = $offset!==FALSE ? "LIMIT $offset, $limit" : "";
+		//select * from projects, user where user.id = projects.author
+		 
+		// Running query
+		 // echo "SELECT `company_registration`.*   FROM company_registration, user  $condition ORDER BY $orderby $order $limit_query";  
+		$query = $this->db->query("SELECT `company_registration`.*   FROM company_registration  $condition ORDER BY $orderby $order $limit_query");
+		
+		// Checking if records found
+		if($query->num_rows())
+		{
+			// Return result
+			return $this->_strip($query->result());
+		}
+
+		// If no records found, return FALSE
+		return FALSE;
+	}	
+	
+		// To fetch list of comapny in manage user section
+	function investor_list($user='',$count=TRUE,$orderby=FALSE,$order=FALSE,$offset=FALSE,$limit=20)
+	{
+		// Declaring condition
+		// Declaring condition
+		$condition='';
+		 
+		// Making condition if filter is not empty
+		if(!empty($user))
+		{
+			$condition = " WHERE  `investor_registration`.`company`  LIKE '$title%' OR `investor_registration`.`title` LIKE '$title%'";
+		}  
+		
+		// Making condition if category id is not empty
+		
+		
+		// Checking if it is a request to count the total data for pagination
+		if($count)
+		{
+			$total=$this->db->query("SELECT COUNT(`investor_registration`.`id`) AS total FROM `investor_registration`");
+			$total=$total->row();
+			return $total->total;
+		}
+		
+		// Making limit query based on parameters
+		$limit_query = $offset!==FALSE ? "LIMIT $offset, $limit" : "";
+		//select * from projects, user where user.id = projects.author
+		 
+		// Running query
+		 // echo "SELECT `company_registration`.*   FROM company_registration, user  $condition ORDER BY $orderby $order $limit_query";  
+		$query = $this->db->query("SELECT `investor_registration`.*   FROM investor_registration  $condition ORDER BY $orderby $order $limit_query");
+		
+		// Checking if records found
+		if($query->num_rows())
+		{
+			// Return result
+			return $this->_strip($query->result());
+		}
+
+		// If no records found, return FALSE
+		return FALSE;
+	}	
+	
+	
 	//fech Contact us User Details
 	// To fetch list of users in manage user section
-	function contact_list($user='',$count=TRUE,$orderby=FALSE,$order=FALSE,$offset=FALSE,$limit=50)
+	function contact_list($user='',$count=TRUE,$orderby=FALSE,$order=FALSE,$offset=FALSE,$limit=20)
 	{
 		// Declaring condition
 		$condition='';
@@ -181,7 +268,7 @@ class Admin_security extends CI_Model {
 	
 	
 	// To fetch list of users in manage user section
-	function category_list($category='',$count=TRUE,$orderby=FALSE,$order=FALSE,$offset=FALSE,$limit=50)
+	function category_list($category='',$count=TRUE,$orderby=FALSE,$order=FALSE,$offset=FALSE,$limit=20)
 	{
 		// Declaring condition
 		$condition='';
@@ -210,7 +297,6 @@ class Admin_security extends CI_Model {
 		$query = $this->db->query("SELECT `category`.* FROM `category` $condition ORDER BY $orderby $order $limit_query");
 		
 		// Checking if records found
-
 		if($query->num_rows())
 		{
 			// Return result
@@ -481,6 +567,48 @@ class Admin_security extends CI_Model {
 		}			
 	}	
 	
+	
+	
+	
+	
+	function getCompany($com_id)
+	{
+		
+		
+		$query = $this->db->query('SELECT * FROM `company_registration`  where id='.$com_id);	
+		if($query->num_rows())
+		{
+			// Returning result
+			$res = $this->_strip($query->result());
+			return $res[0];
+		}
+		else
+		{
+			// If no records found, return FALSE
+			return FALSE;
+		}			
+	}	
+	
+	function getInvestor($inv_id)
+	{
+		 
+		
+		$query = $this->db->query('SELECT * FROM `investor_registration`  where id='.$inv_id);	
+		if($query->num_rows())
+		{
+			// Returning result
+			$res = $this->_strip($query->result());
+			return $res[0];
+		}
+		else
+		{
+			// If no records found, return FALSE
+			return FALSE;
+		}			
+	}	
+	
+	
+	
 	function getContact($c_id)
 	{
 		
@@ -609,6 +737,40 @@ class Admin_security extends CI_Model {
 			else
 				return FALSE;
 		}
+		
+		function deletecomp($id)
+		{
+			
+			if(is_array($id))
+			{
+				$user_id=implode(',',$id);
+			}
+			
+				$query=$this->db->query("DELETE FROM `company_registration` WHERE `id` IN ($id)");
+				 
+				if($query)
+					return TRUE;
+				else
+					return FALSE;
+			}
+		
+		function deleteinvestor($id)
+		{
+			
+			if(is_array($id))
+			{
+				$user_id=implode(',',$id);
+			}
+			 
+				$query=$this->db->query("DELETE FROM `investor_registration` WHERE `id` IN ($id)");
+				 
+				if($query)
+					return TRUE;
+				else
+					return FALSE;
+			}
+		
+		
 		
 		
 		function deletecontact($id)
@@ -799,7 +961,7 @@ class Admin_security extends CI_Model {
 	}
 	
 	// To fetch list of project in manage project section
-	function project_list($title='',$count=TRUE,$orderby=FALSE,$order=FALSE,$offset=FALSE,$limit=50)
+	function project_list($title='',$count=TRUE,$orderby=FALSE,$order=FALSE,$offset=FALSE,$limit=20)
 	{
 		// Declaring condition
 		$condition='';
@@ -863,18 +1025,16 @@ class Admin_security extends CI_Model {
 		if($count)
 		{
 			$total=$this->db->query("SELECT COUNT(`pages`.`id`) AS total FROM `pages`");
-			 $total=$total->row(); 
-			 
+			$total=$total->row();
 			return $total->total;
 		}
 		
 		// Making limit query based on parameters
 		$limit_query = $offset!==FALSE ? "LIMIT $offset, $limit" : "";
-		//$limit_query = $offset!==FALSE ? "LIMIT $offset, 50" : "";
 		//select * from projects, user where user.id = projects.author
 		 
 		// Running query
-		//echo "SELECT `pages`.*  FROM pages   $condition ORDER BY $orderby $order $limit_query";   
+		//echo "SELECT `pages`.*,manage_menu.menu_name FROM pages, manage_menu  $condition ORDER BY $orderby $order $limit_query";  die;
 		$query = $this->db->query("SELECT `pages`.*  FROM pages   $condition ORDER BY $orderby $order $limit_query");
 		
 		// Checking if records found
@@ -889,7 +1049,7 @@ class Admin_security extends CI_Model {
 	}	
 	
 	// To fetch list of pages in manage page section
-	function event_list($title='',$count=TRUE,$orderby=FALSE,$order=FALSE,$offset=FALSE,$limit=50)
+	function event_list($title='',$count=TRUE,$orderby=FALSE,$order=FALSE,$offset=FALSE,$limit=20)
 	{
 		// Declaring condition
 		$condition='';

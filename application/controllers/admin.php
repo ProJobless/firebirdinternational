@@ -3,7 +3,7 @@
  * Filename       : Admin
  * Database       : meeting
  * Creation Date  : 23 march 2013
- * Author         : Sanjay [spatidar@matictechnology.com]
+ * Author         : S Patidar (spatidar@matictechnology.com)
  * Description    : The file is controller file for admin section.
 *********************************************************************************************/	
 class Admin extends CI_Controller 
@@ -629,6 +629,36 @@ class Admin extends CI_Controller
 		$this->load->view('admin/view_user_detail',$this->data);
 	}//end od user details function
 	
+	//this function shows company details 
+	function company_view() {
+		 
+			// To verify admin is logged in
+		$this->admin_security->check_admin_login(TRUE);
+		// Geting fish id from uri segment 3. If not found, redirect to home
+		if($this->data['com_id']=$this->uri->segment(3))
+			// Fetching user details
+			$this->data['row']=$this->admin_security->getCompany($this->data['com_id']);
+		else
+			redirect(base_url()."home");
+	
+		$this->load->view('admin/view_company_detail',$this->data);
+	}//end od user details function
+	
+	//this function shows investor details 
+	function investor_view() {
+		 
+			// To verify admin is logged in
+		$this->admin_security->check_admin_login(TRUE);
+		// Geting fish id from uri segment 3. If not found, redirect to home
+		if($this->data['com_id']=$this->uri->segment(3))
+			// Fetching user details
+			$this->data['row']=$this->admin_security->getInvestor($this->data['com_id']);
+		else
+			redirect(base_url()."home");
+	
+		$this->load->view('admin/view_investor_detail',$this->data);
+	}//end od user details function
+	
 	//this function shows user details 
 	function contact_view() {
 		 
@@ -783,6 +813,34 @@ class Admin extends CI_Controller
 		//$this->load->view('admin_welcome',$this->data);
 	}
 	
+	//this function user for delete Company.
+	function deletecompany() {
+		if($this->uri->segment(3))
+		{
+			$ids=explode('_',$this->uri->segment(3));
+			
+			$id=$this->uri->segment(3);
+			$this->admin_security->deletecomp($ids[0]);
+			$this->session->set_flashdata('flash_success','Company has been deleted successfully.');
+			redirect(base_url().'admin/company_details');
+		}
+		//$this->load->view('admin_welcome',$this->data);
+	}
+	
+	//this function user for delete Investor.
+	function deleteinvestor() {
+		if($this->uri->segment(3))
+		{
+			$ids=explode('_',$this->uri->segment(3));
+			
+			$id=$this->uri->segment(3);
+			$this->admin_security->deleteinvestor($ids[0]);
+			$this->session->set_flashdata('flash_success','Investor has been deleted successfully.');
+			redirect(base_url().'admin/investor_details');
+		}
+		//$this->load->view('admin_welcome',$this->data);
+	}
+	
 	//this function contact for delete contact.
 	function deletecontact() {
 		if($this->uri->segment(3))
@@ -844,6 +902,169 @@ class Admin extends CI_Controller
 		
 		$this->load->view('admin/category_details',$this->data);
 	}//end user details functions
+	
+	// To view list of company
+	function company_details() {
+		//echo $this->input->post('page'); die;
+		// To verify that admin is logged in
+		$this->admin_security->check_admin_login();
+		// To avoid mysql injection
+		$this->admin_security->avoid_mysql_injection(FALSE);
+		// Getting order by field, setting default if null
+		$this->data['orderby']=$this->input->post('orderby') ? $this->input->post('orderby') : 'company_name';
+		// Getting order, setting default if null
+		$this->data['order']=$this->input->post('order') ? $this->input->post('order') : 'ASC';
+		// Getting offset for pagination, setting default if null
+		$this->data['page']=$this->input->post('page') ? $this->input->post('page') : 0;
+		// Getting filter keyword to filter the list accordingly
+		$this->data['company_name']=$this->input->post('company_name') ? $this->input->post('company_name') : '';
+		// Getting category id to filter the list accordingly
+		//$this->data['email']=$this->input->post('email') ? $this->input->post('email') : '';
+				
+		// ---------- pagination block starts ---------- //
+		$this->load->library('pagination');
+		$config=array();
+		$config['total_rows'] = $this->admin_security->company_list($this->data['company_name']);
+		$config['form_name'] = 'record_list';
+		$this->pagination->initialize($config);
+		// ---------- pagination block ends ---------- //
+		$user_data=$this->data['records']=$this->admin_security->company_list($this->data['company_name'],FALSE,$this->data['orderby'], $this->data['order'],$this->data['page'],$this->pagination->per_page);
+		// Assigning total number of records to display in view
+		$this->data['total_records']=$config['total_rows'];
+		//$this->data['citydrop'] = $this->admin_common->getUserEmail();
+		$this->load->view('admin/company_details',$this->data);
+	}//end user details functions
+	
+	// To view list of investor
+	function investor_details() {
+		//echo $this->input->post('page'); die;
+		// To verify that admin is logged in
+		$this->admin_security->check_admin_login();
+		// To avoid mysql injection
+		$this->admin_security->avoid_mysql_injection(FALSE);
+		// Getting order by field, setting default if null
+		$this->data['orderby']=$this->input->post('orderby') ? $this->input->post('orderby') : 'company';
+		// Getting order, setting default if null
+		$this->data['order']=$this->input->post('order') ? $this->input->post('order') : 'ASC';
+		// Getting offset for pagination, setting default if null
+		$this->data['page']=$this->input->post('page') ? $this->input->post('page') : 0;
+		// Getting filter keyword to filter the list accordingly
+		$this->data['company']=$this->input->post('company') ? $this->input->post('company') : '';
+		// Getting category id to filter the list accordingly
+		//$this->data['email']=$this->input->post('email') ? $this->input->post('email') : '';
+				
+		// ---------- pagination block starts ---------- //
+		$this->load->library('pagination');
+		$config=array();
+		$config['total_rows'] = $this->admin_security->investor_list($this->data['company']);
+		$config['form_name'] = 'record_list';
+		$this->pagination->initialize($config);
+		// ---------- pagination block ends ---------- //
+		$user_data=$this->data['records']=$this->admin_security->investor_list($this->data['company'],FALSE,$this->data['orderby'], $this->data['order'],$this->data['page'],$this->pagination->per_page);
+		// Assigning total number of records to display in view
+		$this->data['total_records']=$config['total_rows'];
+		//$this->data['citydrop'] = $this->admin_common->getUserEmail();
+		$this->load->view('admin/investor_details',$this->data);
+	}//end user details functions
+	
+	
+	// To edit Company for admin home page
+	function edit_company() {
+		 
+		// To verify admin is logged in
+		$this->admin_security->check_admin_login(TRUE);
+		// Geting fish id from uri segment 3. If not found, redirect to home
+		if($this->data['comp_id']=$this->uri->segment(3))
+			// Fetching user details
+			$this->data['row']=$this->admin_security->getCompany($this->data['comp_id']);
+		else
+			redirect(base_url()."admin");
+		if(isset($_POST['sub']))
+		{
+			$user=$this->input->post('introduction_for_investors');
+			 
+			if($user!='') {
+				$update_values=array(     
+					'introduction_for_investors' => $this->input->post('introduction_for_investors'),
+					'company_name' => $this->input->post('company_name'),
+					'first_name' => $this->input->post('first_name'),
+					'last_name' => $this->input->post('last_name'),
+					'title' => $this->input->post('title'),
+					'type' => $this->input->post('type'),
+					'address' => $this->input->post('address'),
+					'city' => $this->input->post('city'),
+					'state' => $this->input->post('state'),
+					'country' => $this->input->post('country'),
+					'zipcode' => $this->input->post('zipcode'),
+					'phone' => $this->input->post('phone'),
+					'email1' => $this->input->post('email1'),
+					'email2' => $this->input->post('email2'),
+					'company_url' => $this->input->post('company_url'),
+					'facebook_url_personal' => $this->input->post('facebook_url_personal'),
+					'facebook_url_company' => $this->input->post('facebook_url_company'),
+					'vkontekte_address_personal' => $this->input->post('vkontekte_address_personal'),
+					'vkontekte_address_company' => $this->input->post('vkontekte_address_company'),
+					'odnoklassniki_address_personal' => $this->input->post('odnoklassniki_address_personal'),
+					'odnoklassniki_address_company' => $this->input->post('odnoklassniki_address_company'),
+					'linkedin_url' => $this->input->post('linkedin_url'),
+					'twitter' => $this->input->post('twitter'),
+					'status' => $this->input->post('status'),
+					'company_details' => $this->input->post('company_details'),
+					
+					
+					'min_amount_requested' => $this->input->post('min_amount_requested'),
+					'investment_towards' => $this->input->post('investment_towards'),
+					'interested_in_incrowdsourcing' => $this->input->post('interested_in_incrowdsourcing'),
+					'interested_in_bd' => $this->input->post('interested_in_bd'),
+					
+					'strategy_details' => $this->input->post('strategy_details'),
+					'current_valuation' => $this->input->post('current_valuation'),
+					'ideal_investor' => $this->input->post('ideal_investor'),
+					'investor_preference' => $this->input->post('investor_preference'),
+				 	'short_term_goals' => $this->input->post('short_term_goals'),
+					
+					'feedback_text' => $this->input->post('feedback_text'),
+					'major_assets' => $this->input->post('major_assets'),
+					'companies_you_emulate' => $this->input->post('companies_you_emulate'),
+					
+					'competitors' => $this->input->post('competitors'),
+					'companies_you_emulate' => $this->input->post('companies_you_emulate'),
+					'market_research' => $this->input->post('market_research')
+					
+					
+													
+									);
+									
+									 
+                     // Saving in DB
+					$this->db->where("id = ".$this->data['comp_id']);
+					$this->db->update('company_registration',$update_values);
+					// Redirect with success mesage
+					$this->session->set_flashdata('flash_success','Company has been updated successfully.');
+					redirect(base_url()."admin/company_details");
+				}
+				
+			 
+		}
+		$this->load->view('admin/edit_company_detail',$this->data);
+	}//end of edit_user function
+	
+	
+	
+	// To edit Investor for admin home page
+	function edit_investor() {
+		 
+		// To verify admin is logged in
+		$this->admin_security->check_admin_login(TRUE);
+		// Geting fish id from uri segment 3. If not found, redirect to home
+		if($this->data['invest_id']=$this->uri->segment(3))
+			// Fetching user details
+			$this->data['row']=$this->admin_security->getInvestor($this->data['invest_id']);
+		else
+			redirect(base_url()."admin");
+		
+		$this->load->view('admin/edit_investor_detail',$this->data);
+	}//end of edit_user function
 	
 	//this function user for delete category.
 	function deletecategory() {
