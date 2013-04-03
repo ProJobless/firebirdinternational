@@ -1,24 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 3.2.0.1
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: Apr 03, 2013 at 07:37 PM
--- Server version: 5.1.36
--- PHP Version: 5.3.0
-
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-
---
--- Database: `devs`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `investor_registration`
---
-
 CREATE TABLE IF NOT EXISTS `investor_registration` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -67,10 +46,7 @@ CREATE TABLE IF NOT EXISTS `investor_registration` (
   `companies_intrested_in` varchar(250) NOT NULL,
   `investment_strategies` varchar(250) NOT NULL,
   `competitors` varchar(250) NOT NULL,
-  `create_date` datetime NOT NULL
+  `create_date` datetime NOT NULL,
+  `status` int(11) NOT NULL,
+  `is_feature` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `investor_registration`
---
-
