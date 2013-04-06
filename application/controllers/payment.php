@@ -82,7 +82,7 @@ class Payment  extends CI_Controller
 			if (empty($_GET['action'])) $_GET['action'] = 'process';  
 			switch ($_GET['action']) {
 			case 'process':      // Process and order...
-				$p->add_field('business', 'manishgau_tam@hotmail.com');
+				$p->add_field('business', 'prosatya@gmail.com');
 				$p->add_field('return', $this_script.'payment/thanks');
 				$p->add_field('cancel_return', $this_script.'payment/cancel');
 				$p->add_field('notify_url', $this_script.'action=ipn');
@@ -116,7 +116,7 @@ class Payment  extends CI_Controller
 			case 'ipn':          // Paypal is calling page for IPN validation...
 				if ($p->validate_ipn()) {
 					$subject = 'Instant Payment Notification - Recieved Payment';
-					$to = 'mgautam@solutionsofts.com';    //  your email
+					$to = 'prosatya@gmail.com';    //  your email
 					$body =  "An instant payment notification was successfully recieved\n";
 					$body .= "from ".$p->ipn_data['payer_email']." on ".date('m/d/Y');
 					$body .= " at ".date('g:i A')."\n\nDetails:\n";
