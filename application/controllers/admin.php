@@ -1,7 +1,7 @@
 <?php 
 /**********************************************************************************************
  * Filename       : Admin
- * Database       : meeting
+ * Database       : Devs
  * Creation Date  : 23 march 2013
  * Author         : S Patidar (spatidar@matictechnology.com)
  * Description    : The file is controller file for admin section.
@@ -1063,6 +1063,70 @@ class Admin extends CI_Controller
 		else
 			redirect(base_url()."admin");
 		
+		if(isset($_POST['sub']))
+		{
+			//print_r($_POST); die;
+			$user=$this->input->post('company');
+			 
+			if($user!='') {
+				$update_values=array(     
+					'company' => $this->input->post('company'),
+					'title' => $this->input->post('title'),
+					'first_name' => $this->input->post('first_name'),
+					'last_name' => $this->input->post('last_name'),
+					'project_type' => $this->input->post('project_type'),
+					'address' => $this->input->post('address'),
+					'contact_number' => $this->input->post('contact_number'),
+					'country' => $this->input->post('country'),
+					'company_type' => $this->input->post('company_type'),
+					'current_capitalization' => $this->input->post('current_capitalization'),
+					'email1' => $this->input->post('email1'),
+					'email2' => $this->input->post('email2'),
+					'company_url' => $this->input->post('company_url'),
+					'facebook_url' => $this->input->post('facebook_url'),
+					'skype' => $this->input->post('skype'),
+					'linkedin_url' => $this->input->post('linkedin_url'),
+					'status' => $this->input->post('status'),
+					'seeking_company' => $this->input->post('seeking_company'),
+					'min_amt' => $this->input->post('min_amt'),
+					'max_amt' => $this->input->post('max_amt'),
+					'ownership_share' => $this->input->post('ownership_share'),
+					'control_percentage' => $this->input->post('control_percentage'),
+					'investor_details' => $this->input->post('investor_details'),
+					'companies_looking' => $this->input->post('companies_looking'),
+					'experience_in_russia' => $this->input->post('experience_in_russia'),
+					
+					
+					'experience_in_investment' => $this->input->post('experience_in_investment'),
+					'portfolio' => $this->input->post('portfolio'),
+					'average_roi' => $this->input->post('average_roi'),
+					'time_for_returns' => $this->input->post('time_for_returns'),
+					
+					'about_investment' => $this->input->post('about_investment'),
+					'investing_experience' => $this->input->post('investing_experience'),
+					'ratings' => $this->input->post('ratings'),
+					'interested_in_crowdsourcing' => $this->input->post('interested_in_crowdsourcing'),
+				 	'project_consideration' => $this->input->post('project_consideration'),
+					
+					'partners_consideration' => $this->input->post('partners_consideration'),
+					'companies_intrested_in' => $this->input->post('companies_intrested_in'),
+					'investment_strategies' => $this->input->post('investment_strategies'),
+					
+					'competitors' => $this->input->post('competitors'),
+					'is_feature' => $this->input->post('is_feature') 
+				);
+									
+									 
+                     // Saving in DB
+					$this->db->where("id = ".$this->data['invest_id']);
+					$this->db->update('investor_registration',$update_values);
+					// Redirect with success mesage
+					$this->session->set_flashdata('flash_success','Investor has been updated successfully.');
+					redirect(base_url()."admin/investor_details");
+				}
+				
+			 
+		}	
 		$this->load->view('admin/edit_investor_detail',$this->data);
 	}//end of edit_user function
 	

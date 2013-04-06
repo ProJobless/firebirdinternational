@@ -106,7 +106,7 @@ class Company extends CI_Controller {
 		} else{
 			$this->load->model('Company_Model');
 			$last_id = $this->Company_Model->addcompany();
-			redirect('user/profile');
+			redirect('payment');
 		}
 	}
 	

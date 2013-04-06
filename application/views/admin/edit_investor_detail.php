@@ -29,7 +29,7 @@ $(document).ready(function() {
 	highlight:false,
 	unhighlight:false,
 	rules: {
-		introduction_for_investors: {
+		company: {
 			required: true
 		},
 		title: {
@@ -41,22 +41,22 @@ $(document).ready(function() {
 		last_name: {
 			required: true
 		},
-		type: {
+		project_type: {
 			required: true
 		},
 		address: {
 			required: true
 		},
-		city: {
+		contact_number: {
 			required: true
 		},
-		state: {
+		country: {
 			required: true
 		},
-		zipcode: {
+		company_type: {
 			required: true
 		},
-		phone: {
+		current_capitalization: {
 			required: true
 		},
 		email1: {
@@ -67,25 +67,25 @@ $(document).ready(function() {
 			required: true,
 			url:true
 		},
-		company_details: {
+		min_amt: {
 			required: true
 		},
-		min_amount_requested: {
+		max_amt: {
 			required: true
 		},
-		investment_towards: {
+		ownership_share: {
 			required: true
 		},
-		interested_in_incrowdsourcing: {
+		experience_in_investment: {
 			required: true
 		},
-		interested_in_bd: {
+		portfolio: {
 			required: true
 		},
-		investor_preference: {
+		average_roi: {
 			required: true
 		},
-		ideal_investor: {
+		experience_in_russia: {
 			required: true
 		},
 		major_assets: {
@@ -106,8 +106,8 @@ $(document).ready(function() {
 		
 	},
 	messages: {
-	   introduction_for_investors: {
-			required: "<td><div class='error-left'></div><div class='error-inner'>The introduction for investors field is required.</div></td>"
+	   company: {
+			required: "<td><div class='error-left'></div><div class='error-inner'>The company field is required.</div></td>"
 		},
 		title: {
 			required: "<td><div class='error-left'></div><div class='error-inner'>The title field is required.</div></td>"
@@ -120,18 +120,26 @@ $(document).ready(function() {
 			required: "<td><div class='error-left'></div><div class='error-inner'>The last name field is required.</div></td>" 
 			 		
 		},
-		type: {
-			required:"<td><div class='error-left'></div><div class='error-inner'>The type field is required.</div></td>"	
+		project_type: {
+			required:"<td><div class='error-left'></div><div class='error-inner'>The project type field is required.</div></td>"	
 		},
 		address: {
 			required: "<td><div class='error-left'></div><div class='error-inner'>The address field is required.</div></td>" 
 			 
 		},
-		city: {
-			required:"<td><div class='error-left'></div><div class='error-inner'>The city field is required.</div></td>"	
+		contact_number: {
+			required:"<td><div class='error-left'></div><div class='error-inner'>The contact number field is required.</div></td>"	
 		},
-		zipcode: {
-			required: "<td><div class='error-left'></div><div class='error-inner'>The zipcode field is required.</div></td>" 
+		country: {
+			required: "<td><div class='error-left'></div><div class='error-inner'>The country field is required.</div></td>" 
+			 	
+		},
+		company_type: {
+			required: "<td><div class='error-left'></div><div class='error-inner'>The company type field is required.</div></td>" 
+			 	
+		},
+		current_capitalization: {
+			required: "<td><div class='error-left'></div><div class='error-inner'>The current capitalization field is required.</div></td>" 
 			 	
 		},
 		email1: {
@@ -143,29 +151,29 @@ $(document).ready(function() {
 			url: "<td><div class='error-left'></div><div class='error-inner'>Invalid url.</div></td>"	
 				
 		},
-		company_details: {
-			required:"<td><div class='error-left'></div><div class='error-inner'>The company details field is required.</div></td>"	
+		min_amt: {
+			required:"<td><div class='error-left'></div><div class='error-inner'>The mininum amt field is required.</div></td>"	
 		},
-		min_amount_requested: {
-			required: "<td><div class='error-left'></div><div class='error-inner'>The min amount requested field is required.</div></td>" 
+		max_amt: {
+			required: "<td><div class='error-left'></div><div class='error-inner'>The maximum amount requested field is required.</div></td>" 
 			 		
 		},
-		investment_towards: {
-			required:"<td><div class='error-left'></div><div class='error-inner'>The investment towards field is required.</div></td>"	
+		ownership_share: {
+			required:"<td><div class='error-left'></div><div class='error-inner'>The ownership share field is required.</div></td>"	
 		},
-		interested_in_incrowdsourcing: {
-			required: "<td><div class='error-left'></div><div class='error-inner'>The interested in incrowdsourcing field is required.</div></td>" 
+		experience_in_investment: {
+			required: "<td><div class='error-left'></div><div class='error-inner'>The experience in investment field is required.</div></td>" 
 			 	
 		},
-		interested_in_bd: {
-			required:"<td><div class='error-left'></div><div class='error-inner'>The interested in bd field is required.</div></td>"	
+		portfolio: {
+			required:"<td><div class='error-left'></div><div class='error-inner'>The portfolio field is required.</div></td>"	
 		},
-		investor_preference: {
-			required: "<td><div class='error-left'></div><div class='error-inner'>The investor preference field is required.</div></td>"
+		average_roi: {
+			required: "<td><div class='error-left'></div><div class='error-inner'>The average roi field is required.</div></td>"
 			 	
 		},
-		ideal_investor: {
-			required:"<td><div class='error-left'></div><div class='error-inner'>The ideal investor field is required.</div></td>"	
+		experience_in_russia: {
+			required:"<td><div class='error-left'></div><div class='error-inner'>The experience in russia field is required.</div></td>"	
 		},
 		major_assets: {
 			required: "<td><div class='error-left'></div><div class='error-inner'>The major assets field is required.</div></td>" 
@@ -629,7 +637,7 @@ $(document).ready(function() {
 		
         <tr>
 			<th valign="top">Is feature:</th>
-			<td>  <select name="status" id="status" style="width:150px;" class="inp-form"  >
+			<td>  <select name="is_feature" id="is_feature" style="width:150px;" class="inp-form"  >
             	
     			<option value="1" <?php if($row->is_feature==1) { echo 'selected'; }?> >Yes</option>                
                 <option value="0" <?php if($row->is_feature==0) { echo 'selected'; }?> >No</option>                
