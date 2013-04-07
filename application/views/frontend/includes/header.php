@@ -80,7 +80,7 @@
 		<a href="<?php echo base_url(); ?>meeting">Events</a>	
 	</li>
     <li>
-		<a href="#">Blog</a>	
+		<a href="<?php echo base_url(); ?>blog">Blog</a>	
 	</li>
 	<li>
 		<a href="<?php echo base_url(); ?>news/viewnews/7">FAQ</a>	
