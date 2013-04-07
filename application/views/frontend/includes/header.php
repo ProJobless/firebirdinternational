@@ -69,21 +69,21 @@
 <ul id="menu">
 	<li><a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>images/home.png" /></a></li>
 	<li><a href="<?php echo base_url(); ?>news/viewnews/2">About Us</a></li>
-	<li><a href="#">Showcase</a></li>
 	<li>
-		<a href="<?php echo base_url(); ?>browseproject">Browse Projects</a>	
+		<a href="<?php echo base_url(); ?>browseproject">Company</a>	
 	</li>
 	<li>
-		<a href="<?php echo base_url(); ?>news/viewnews/7">FAQ,</a>	
+		<a href="#">Investor </a>	
 	</li>
-    <li>
+
+	<li>
 		<a href="<?php echo base_url(); ?>meeting">Events</a>	
 	</li>
     <li>
 		<a href="#">Blog</a>	
 	</li>
-    <li>
-		<a href="#">Investor </a>	
+	<li>
+		<a href="<?php echo base_url(); ?>news/viewnews/7">FAQ</a>	
 	</li>
     <li>
 		<a href="<?php echo base_url(); ?>user/contactus">Contact</a>	
