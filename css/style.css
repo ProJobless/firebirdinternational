@@ -9,6 +9,12 @@ body, td, th, input, textarea, select, a {
 }
 img {border:none;}
 h1 { font-family: 'Open Sans',Helvetica,Arial,sans-serif; font-size:18px; font-weight: 400; padding-left:38px; }
+#slider h1 {  color: #B93533;
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-size: 33px;
+    font-weight: bold;
+    padding-left: 0;
+}
 
 .wrapper{width:100%; height:auto;} 
 .headerdiv{ width:980px; margin: 0 auto;}
