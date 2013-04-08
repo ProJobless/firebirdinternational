@@ -28,7 +28,30 @@ function change_status(user_id, status_var,table)
 	change_st_http.send(null);
 }
 
- 
+  function change_publish(id, publish_var,table)
+{
+	 
+	pub_divid="pub"+ id;
+	 
+	change_pub_http=getHTTPObject();
+	page_url="admin/change_publish/"+id+'-'+publish_var+'/'+table;	
+	//alert(page_url); 
+	change_pub_http.open("GET",page_url,true);
+	 //alert(change_pub_user_result);
+	change_pub_http.onreadystatechange=change_pub_user_result;
+	change_pub_http.send(null);
+}
+
+function change_pub_user_result()
+{
+	if (change_pub_http.readyState==4)
+	{ 
+		 // alert(change_pub_http.responseText);
+		document.getElementById(pub_divid).innerHTML= change_pub_http.responseText;
+		$('#'+pub_divid).animate({opacity: 1}, anim_duration,'easeIn',function(){busy=false;});
+	}
+}
+
 
 
 function change_st_user_result()
