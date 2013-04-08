@@ -97,7 +97,10 @@ $(function() {
 <script src="public/admin/js/jquery/jquery.datePicker.js" type="text/javascript"></script>
 <script src="public/admin/js/jquery/manage-cmn.js" type="text/javascript"></script>
 <script src="public/admin/js/jquery/status.js" type="text/javascript"></script>
-
+<script src="public/admin/js/jquery/jquery.min.js"></script>
+<script src="public/admin/js/highslide/jquery/slides.min.jquery.js"></script>
+<script type="text/javascript" src="public/admin/js/highslide/highslide-full.js"></script>
+<link rel="stylesheet" type="text/css" href="public/admin/js/highslide/highslide.css" />
 <script type="text/javascript" charset="utf-8">
         $(function()
 {
@@ -173,6 +176,52 @@ $(document).ready(function(){
 $(document).pngFix( );
 });
 </script>
+<script>
+		$(function(){
+			$('#slides').slides({
+				preload: true,
+				generateNextPrev: true,
+				play: 4000,
+				pause: 2500
+			});
+		});
+		
+		$(function(){
+			$('#scroll').slides({
+				preload: true,
+				generateNextPrev: true
+			});
+		});
+	</script>
+<!--For slider end -->
+<script type="text/javascript">
+	hs.graphicsDir = 'public/admin/js/highslide/graphics/';
+	hs.align = 'center';
+	hs.transitions = ['expand', 'crossfade'];
+	hs.outlineType = 'rounded-white';
+	hs.fadeInOut = true;
+	hs.dimmingOpacity = 0.75;
+
+	// define the restraining box
+	hs.useBox = true;
+	hs.width = 640;
+	hs.height = 480;
+
+	// Add the controlbar
+	hs.addSlideshow({
+		//slideshowGroup: 'group1',
+		interval: 5000,
+		repeat: false,
+		useControls: true,
+		fixedControls: 'fit',
+		overlayOptions: {
+			opacity: 1,
+			position: 'bottom center',
+			hideOnMouseOut: true
+		}
+	});
+</script>
+
 </head>
 <body> 
 <!-- Start: page-top-outer -->
@@ -220,9 +269,9 @@ $(document).pngFix( );
 		<!--  end step-holder -->
 	
 		<!-- start id-form -->
-		<table border="0" cellpadding="0" cellspacing="0"  id="id-form">
+		<table border="0" cellpadding="0" cellspacing="0"  id="id-form"   >
 		<tr>
-			<th valign="top">Company name:</th>
+			<th valign="top" width="490px">Company name:</th>
 			<td><?php echo $row->company_name ; ?></td>
 			<td></td>
 		</tr>
@@ -328,6 +377,8 @@ $(document).pngFix( );
 			<td></td>
 		</tr>
         
+        
+        
         <tr>
 			<th valign="top">Vkontekte Address Company:</th>
 			<td><?php if(isset($row->vkontekte_address_company)) { echo $row->vkontekte_address_company ; } ?></td>
@@ -393,6 +444,87 @@ $(document).pngFix( );
 			<td><?php if(isset($row->interested_in_bd)) { echo $row->interested_in_bd ; } ?></td>
 			<td></td>
 		</tr>
+         <tr>
+			<th valign="top">If so, please upload Company Registration Doc:</th>
+			<td><?php if(isset($row->vkontekte_address_personal)) { echo $row->vkontekte_address_personal ; } ?></td>
+			<td></td>
+		</tr>
+        
+          <tr>
+			<th valign="top">Business Plan Upload (if you have one):</th>
+			<td>  <?php if(isset($row->business_plans) && !empty($row->business_plans)) { ?>
+         <a href="uploads/<?php echo $row->business_plans; ?>" target="_blank"><?php $row->business_plans; ?></a> 
+         <?php } ?></td>
+			<td></td>
+		</tr>
+        
+         <tr>
+			<th valign="top">Financials Upload (any and all you may have):</th>
+			<td> 
+            <div class="image-left">
+        	 
+         <p>
+         <?php if(isset($row->bios_pics1) && !empty($row->bios_pics1)) { ?>
+         <a href="uploads/<?php echo $row->bios_pics1; ?>" class="highslide" onclick="return hs.expand(this)"><img src="uploads/<?php echo $row->bios_pics1; ?>" width="90" height="90" style="border:#333 1px solid"></a> 
+         <?php } ?>
+          <?php if(isset($row->bios_pics2) && !empty($row->bios_pics2)) { ?>
+          	<a href="uploads/<?php echo $row->bios_pics2; ?>" class="highslide" onclick="return hs.expand(this)"><img src="uploads/<?php echo $row->bios_pics2; ?>" width="90" height="90" style="border:#333 1px solid; margin-left:10px;"></a>
+            <?php } ?>
+             <?php if(isset($row->bios_pics3) && !empty($row->bios_pics3)) { ?>
+            <a href="uploads/<?php echo $row->bios_pics3; ?>" class="highslide" onclick="return hs.expand(this)"><img src="uploads/<?php echo $row->bios_pics3; ?>" width="90" height="90" style="border:#333 1px solid; margin-left:10px;"></a>
+             <?php } ?>
+             <?php if(isset($row->bios_pics4) && !empty($row->bios_pics4)) { ?>
+              <a href="uploads/<?php echo $row->bios_pics4; ?>" class="highslide" onclick="return hs.expand(this)"><img src="uploads/<?php echo $row->bios_pics4; ?>" width="90" height="90" style="border:#333 1px solid; margin-left:10px;"></a>
+             <?php } ?>
+             <?php if(isset($row->bios_pics5) && !empty($row->bios_pics5)) { ?>
+              <a href="uploads/<?php echo $row->bios_pics5; ?>" class="highslide" onclick="return hs.expand(this)"><img src="uploads/<?php echo $row->bios_pics5; ?>" width="90" height="90" style="border:#333 1px solid; margin-left:10px;"></a>
+             <?php } ?>
+          </p>
+         
+            
+       	</div>
+            	
+            
+            </td>
+			<td></td>
+		</tr>
+        
+         <tr>
+			<th valign="top">Bios and pics of Main Players, both Listed in Registration Material (and otheriwise) ):</th>
+			<td><?php if(isset($row->vkontekte_address_personal)) { echo $row->vkontekte_address_personal ; } ?></td>
+			<td></td>
+		</tr>
+        
+         <tr>
+			<th valign="top">Please upload all marketing materials you have for your project/company, including videos, slide presentations, VUIs, etc.:</th>
+			<td>
+            	<?php if(isset($row->marketing_material1) && !empty($row->marketing_material1)) { ?>
+         <a href="uploads/<?php echo $row->marketing_material1; ?>" target="_blank"><?php $row->marketing_material1; ?></a> 
+         <?php } ?>
+          <?php if(isset($row->marketing_material2) && !empty($row->marketing_material2)) { ?>
+         <a href="uploads/<?php echo $row->marketing_material2; ?>" target="_blank"><?php $row->marketing_material2; ?></a> 
+         <?php } ?>
+             <?php if(isset($row->marketing_material3) && !empty($row->marketing_material3)) { ?>
+         <a href="uploads/<?php echo $row->marketing_material3; ?>" target="_blank"><?php $row->marketing_material3; ?></a> 
+         <?php } ?>
+            <?php if(isset($row->marketing_material4) && !empty($row->marketing_material4)) { ?>
+         <a href="uploads/<?php echo $row->marketing_material4; ?>" target="_blank"><?php $row->marketing_material4; ?></a> 
+         <?php } ?>
+            <?php if(isset($row->marketing_material5) && !empty($row->marketing_material5)) { ?>
+         <a href="uploads/<?php echo $row->marketing_material5; ?>" target="_blank"><?php $row->marketing_material5; ?></a> 
+         <?php } ?>
+            
+            
+            </td>
+			<td></td>
+		</tr>
+        
+         <tr>
+			<th valign="top">Please include all positive press/feedback from professionals you have about your company:</th>
+			<td><?php if(isset($row->vkontekte_address_personal)) { echo $row->vkontekte_address_personal ; } ?></td>
+			<td></td>
+		</tr>
+        
         
          <tr>
 			<th valign="top">Strategy Details:</th>

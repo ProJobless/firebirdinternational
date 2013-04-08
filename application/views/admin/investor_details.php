@@ -240,6 +240,8 @@ $(document).ready(function() {
 					<span><a href="admin/investor_view/<?php echo $row->id; ?>" title="View user profile details."><img src="public/admin/images/view.png"/></a></span>
                     <span><a href="admin/edit_investor/<?php echo $row->id; ?>" title="Click to edit user."><img src="public/admin/images/ico3.png"/></a></span>
                        <span><a class="button" title="Delete investor profile."><img src="public/admin/images/ico7.png" width="15" height="15" hspace="5" vspace="2" align="absmiddle" onclick="scrollup('<?php echo $row->id; ?>')"/></a></span>
+                       
+                        <span id="pub<?php echo $row->id;?>" title="click to change publish."> <?php if($row->is_feature==1){?> <img src="public/admin/images/yes.png" style="cursor:pointer;" border="0" onclick="change_publish(<?php echo $row->id;?>,'deactivate','investor_registration');"><?php } else { ?> <img src="public/admin/images/no.png" style="cursor:pointer;" border="0" onclick="change_publish(<?php echo $row->id;?>,'activate','investor_registration');"> <?php }?></span>
 					
 					</td>
 				</tr>
