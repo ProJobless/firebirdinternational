@@ -1,7 +1,10 @@
 <?php 
+//1207/90505/05606  08/11/2011 13:58:11
+//1207/92189/01596 08/11/2011 12:31:47
+//http://eaadhaar.uidai.gov.in/eDetails.aspx
 /**********************************************************************************************
  * Filename       : Admin
- * Database       : Devs
+ * Database       : meeting
  * Creation Date  : 23 march 2013
  * Author         : S Patidar (spatidar@matictechnology.com)
  * Description    : The file is controller file for admin section.
@@ -195,8 +198,6 @@ class Admin extends CI_Controller
 		
 		$this->load->view('admin/contact_details',$this->data);
 	}//end user details functions
-	
-	
 	
 	// To edit User for admin home page 
 	function edit_category() {
@@ -404,8 +405,6 @@ class Admin extends CI_Controller
 		}
 	}//end of edit_user function
 	
-	
-	
 	// To add Projects for admin home page
 	function add_project() {
 		 
@@ -544,8 +543,6 @@ class Admin extends CI_Controller
 		}
 	}//end of edit_user function
 	
-	
-	
 	// To add Projects for admin home page
 	function add_category() {
 		 
@@ -613,7 +610,6 @@ class Admin extends CI_Controller
 		}
 	}//end of edit_user function
 	
-	
 	//this function shows user details 
 	function details() {
 		 
@@ -673,7 +669,6 @@ class Admin extends CI_Controller
 	
 		$this->load->view('admin/view_contact',$this->data);
 	}//end od user details function
-	
 	
 	//this function shows project details 
 	function view_project() {
@@ -738,6 +733,32 @@ class Admin extends CI_Controller
 				echo "<img title='Click here to deactive this user.' style='cursor:pointer;' onclick='change_status($id,\"deactivate\",\"$table\");' src='public/admin/images/ico4.png' border='0' />";
 			else
 			echo "<img title='Click here to activate this user.' style='cursor:pointer;' onclick='change_status($id,\"activate\",\"$table\");' src='public/admin/images/ico5.png' border='0' />";
+		}
+	}// end for change status function
+	
+	//this function user for change user status 1 active 0 for deactive 
+	function change_publish() {
+		// Load required model
+		$this->load->model('admin_security');
+		// To verify that admin is logged in
+		$this->admin_security->check_admin_login();
+		// Checking if having id in url
+		if($status=$this->uri->segment(3))
+		{
+			if($table=$this->uri->segment(4))
+			{
+				$table=explode('/',$table);	
+				$table=$table[0];
+			}
+			$status=explode('-',$status);
+			
+			$id=$status[0];
+			$status=$status[1]=='activate' ? 1 : 0;
+			$this->admin_security->change_publish($id, $status,$table);
+			if($status==1)
+				echo "<img title='Click here to deactive this publish.' style='cursor:pointer;' onclick='change_publish($id,\"deactivate\",\"$table\");' src='public/admin/images/yes.png' border='0' />";
+			else
+			echo "<img title='Click here to activate this publish.' style='cursor:pointer;' onclick='change_publish($id,\"activate\",\"$table\");' src='public/admin/images/no.png' border='0' />";
 		}
 	}// end for change status function
 	
@@ -1049,8 +1070,6 @@ class Admin extends CI_Controller
 		$this->load->view('admin/edit_company_detail',$this->data);
 	}//end of edit_user function
 	
-	
-	
 	// To edit Investor for admin home page
 	function edit_investor() {
 		 
@@ -1062,71 +1081,8 @@ class Admin extends CI_Controller
 			$this->data['row']=$this->admin_security->getInvestor($this->data['invest_id']);
 		else
 			redirect(base_url()."admin");
+			
 		
-		if(isset($_POST['sub']))
-		{
-			//print_r($_POST); die;
-			$user=$this->input->post('company');
-			 
-			if($user!='') {
-				$update_values=array(     
-					'company' => $this->input->post('company'),
-					'title' => $this->input->post('title'),
-					'first_name' => $this->input->post('first_name'),
-					'last_name' => $this->input->post('last_name'),
-					'project_type' => $this->input->post('project_type'),
-					'address' => $this->input->post('address'),
-					'contact_number' => $this->input->post('contact_number'),
-					'country' => $this->input->post('country'),
-					'company_type' => $this->input->post('company_type'),
-					'current_capitalization' => $this->input->post('current_capitalization'),
-					'email1' => $this->input->post('email1'),
-					'email2' => $this->input->post('email2'),
-					'company_url' => $this->input->post('company_url'),
-					'facebook_url' => $this->input->post('facebook_url'),
-					'skype' => $this->input->post('skype'),
-					'linkedin_url' => $this->input->post('linkedin_url'),
-					'status' => $this->input->post('status'),
-					'seeking_company' => $this->input->post('seeking_company'),
-					'min_amt' => $this->input->post('min_amt'),
-					'max_amt' => $this->input->post('max_amt'),
-					'ownership_share' => $this->input->post('ownership_share'),
-					'control_percentage' => $this->input->post('control_percentage'),
-					'investor_details' => $this->input->post('investor_details'),
-					'companies_looking' => $this->input->post('companies_looking'),
-					'experience_in_russia' => $this->input->post('experience_in_russia'),
-					
-					
-					'experience_in_investment' => $this->input->post('experience_in_investment'),
-					'portfolio' => $this->input->post('portfolio'),
-					'average_roi' => $this->input->post('average_roi'),
-					'time_for_returns' => $this->input->post('time_for_returns'),
-					
-					'about_investment' => $this->input->post('about_investment'),
-					'investing_experience' => $this->input->post('investing_experience'),
-					'ratings' => $this->input->post('ratings'),
-					'interested_in_crowdsourcing' => $this->input->post('interested_in_crowdsourcing'),
-				 	'project_consideration' => $this->input->post('project_consideration'),
-					
-					'partners_consideration' => $this->input->post('partners_consideration'),
-					'companies_intrested_in' => $this->input->post('companies_intrested_in'),
-					'investment_strategies' => $this->input->post('investment_strategies'),
-					
-					'competitors' => $this->input->post('competitors'),
-					'is_feature' => $this->input->post('is_feature') 
-				);
-									
-									 
-                     // Saving in DB
-					$this->db->where("id = ".$this->data['invest_id']);
-					$this->db->update('investor_registration',$update_values);
-					// Redirect with success mesage
-					$this->session->set_flashdata('flash_success','Investor has been updated successfully.');
-					redirect(base_url()."admin/investor_details");
-				}
-				
-			 
-		}	
 		$this->load->view('admin/edit_investor_detail',$this->data);
 	}//end of edit_user function
 	

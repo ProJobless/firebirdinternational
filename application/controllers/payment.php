@@ -26,6 +26,7 @@ class Payment  extends CI_Controller
 	function index() {
 		//$this->load->view('plan_view',$this->data);
 		$data = array();
+		$user_type="investor";
 		$data['main_content'] ='frontend/plan';
 		$data['meta_title']  = 'PLan - Firebird International';
 		$this->load->model('Category_Model');
@@ -55,7 +56,7 @@ class Payment  extends CI_Controller
 		}
 		
 		$this->load->model('Plan_Model');
-		$query = $this->Plan_Model->plan_list();
+		$query = $this->Plan_Model->plan_list($user_type);
 		 
 		if($query){
 			$data['plan_list'] = $query ; 
@@ -139,14 +140,34 @@ class Payment  extends CI_Controller
 	foreach ($_POST as $key => $value) {
 		echo "$key: $value<br>";
 		}
-		die;	 
-		echo "<html>
-		<head><title>Success....</title></head>
-		<body>
-		<h2>Thank you for your order!</h2>";
+		$insert_values=array(     
+
+     'user_id' => $_POST['custom'],
+
+     'payment_source' =>'paypal',
+
+     'payment_method' => 'online',
+
+     'amount' => $_POST['mc_gross'],
+
+     'payment_date' =>$_POST['payment_date'],
+
+     'transaction_id' => $_POST['txn_id'],
+
+     'transaction_date' => $_POST['payment_date'],
+
+     'payment_status' => $_POST['payment_status'],
+
+     'payername' => $_POST['first_name'],
+
+     'payerlastname' => $_POST['last_name'],
+
+
+    );$this->db->insert('payment',$insert_values);//insert query
 		
-		echo "</body></html>";
-		 die;
+		$this->session->set_flashdata('flash_success','Payment done Successfully.');
+
+     redirect(base_url()."user/profile");
 		
 	}
 	
@@ -156,7 +177,7 @@ class Payment  extends CI_Controller
 		<head><title>Canceled</title></head>
 		<body><h2>The order was canceled.</h2>";
 		echo "</body></html>";	
-		die;		
+				
 	}
 	
 }
