@@ -8,16 +8,16 @@
 		           <?php 
 				   if($this->session->userdata('user_status')==1){
 				   if($this->session->userdata('user_type') == "company") { ?>
-                       <li class="category57"><a href="<?php echo base_url()?>project/addnew">Add New Project</a></li>
-                        <li class="category57"><a href="<?php echo base_url()?>company">Add Company</a></li>
+                   <li class="category57"><a href="<?php echo base_url()?>company">Add/Edit Company</a></li>
                     <?php  } ?>
                     <?php if($this->session->userdata('user_type') == "investor") { ?>
-                        <li class="category57"><a href="<?php echo base_url()?>investor">Add Investor</a></li>
+                        <li class="category57"><a href="<?php echo base_url()?>investor">Add/Edit Investor</a></li>
                     <?php  } ?> 
-                      <li class="category57"><a href="<?php echo base_url()?>user/editProfile">My Profile</a></li>
-                    <?php }else{ ?>
+                     <?php }else{ ?>
 					<li class="category57"><a href="<?php echo base_url()?>user/profile">My Profile</a></li>
 					<?php } ?> 
+					<li class="category57"><a href="<?php echo base_url(); ?>user/logout">logout</a></li>	
+					
 			</ul>
         </div>
       <?php }else { ?>
