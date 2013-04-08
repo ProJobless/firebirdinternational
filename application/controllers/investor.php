@@ -36,10 +36,12 @@ class Investor extends CI_Controller {
 		}
 	
 		if(!empty($userdata)){
+			if($this->session->userdata('user_type') != "investor") {
+			redirect('company');
+			}
 			$data['main_content'] ='frontend/investor_registration';
 			$data['meta_title']   = 'Profile | Firebird International';
 			$data['user_id'] 	  = $this->session->userdata('user_id');
-
 			// Get Investor Detail if already
 			$this->load->model('Investor_Model');
 			$query = $this->Investor_Model->getinvestor($data['user_id']);

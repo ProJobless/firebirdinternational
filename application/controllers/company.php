@@ -33,7 +33,10 @@ class Company extends CI_Controller {
 			$data['news'] = $query ; 
 		}
 		if(!empty($userdata)){
-
+			if($this->session->userdata('user_type') != "company") {
+			redirect('investor');	
+			}
+	
 			$data['main_content'] ='frontend/company_registration';
 			$data['meta_title']   = 'Profile | Firebird International';
 			$data['user_id'] 		= $this->session->userdata('user_id');
