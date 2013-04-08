@@ -23,7 +23,21 @@ class Investor_Model extends CI_Model {
 		}
 
 	}
+	// To fetch list of all projects in project display
+	function investor_list()
+	{
+		$query = $this->db->query("SELECT * FROM projects where status=1  ORDER BY title");
+		
+		// Checking if records found
+		if($query->num_rows())
+		{
+			// Return result
+			return $query->result();
+		}
 
+		// If no records found, return FALSE
+		return FALSE;
+	}
 
 	function addinvestor(){
 		$photograph = $this->Investor_Model->upload_file('photograph');

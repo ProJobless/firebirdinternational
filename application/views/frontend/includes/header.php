@@ -73,7 +73,7 @@
 		<a href="<?php echo base_url(); ?>browseproject">Company</a>	
 	</li>
 	<li>
-		<a href="#">Investor </a>	
+		<a href="<?php echo base_url(); ?>browseinvestor">Investor </a>	
 	</li>
 
 	<li>
