@@ -13,10 +13,10 @@ class Plan_Model extends CI_Model {
 		}
 	
 	// To fetch list of plan in manage plan section
-	function plan_list()
+	function plan_list($user_type)
 	{
 	
-	     $sql = "SELECT * FROM plan where status = 1 ORDER BY plan_amt" ;
+	     $sql = "SELECT * FROM plan where status = 1 and user_type='".$user_type."' ORDER BY plan_amt" ;
 		 
 		$query = $this->db->query($sql);
 		

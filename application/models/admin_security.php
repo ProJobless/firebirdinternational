@@ -38,6 +38,20 @@ class Admin_security extends CI_Model {
 		else
 		return TRUE;
 	}
+	// To change fish status
+	function change_publish($id, $status,$table)
+	{
+		 //echo "UPDATE $table SET `is_publish`='".$status."' WHERE `id` = $id"; die;
+		// Running query
+		$query = $this->db->query("UPDATE $table SET `is_feature`='".$status."' WHERE `id` = $id");
+		
+		
+		// If query executed successfully, return TRUE, else return FALSE
+		if($query)
+			return TRUE;
+		else
+			return FALSE;
+	}	
 	
 	
 	function authenticate_admin($username, $password)
