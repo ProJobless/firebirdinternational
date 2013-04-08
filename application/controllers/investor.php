@@ -39,6 +39,12 @@ class Investor extends CI_Controller {
 			$data['main_content'] ='frontend/investor_registration';
 			$data['meta_title']   = 'Profile | Firebird International';
 			$data['user_id'] 	  = $this->session->userdata('user_id');
+
+			// Get Investor Detail if already
+			$this->load->model('Investor_Model');
+			$query = $this->Investor_Model->getinvestor($data['user_id']);
+			$data['getinvestor'] = $query ; 
+
 			$this->load->view('frontend/includes/template', $data);
 		} else{
 			redirect('user/login');

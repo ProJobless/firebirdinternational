@@ -367,18 +367,118 @@ $(document).ready(function() {
       <div class="box"> 
       <div class="box-heading">Company Registration </div></div>
       <div class="box" >
-	  <?php
+      
+       <?php
 		if(count($getcompany)>1){
-			$first_name = $getcompany['first_name']; 
-			$introduction_for_investors =$getcompany['introduction_for_investors'] ;
+		 $firstname = $getcompany['first_name']; 
+		 $lastname = $getcompany['last_name'];
+		 $title = $getcompany['title'];
+		 $company_name = $getcompany['company_name'];
+		 $introduction_for_investors = $getcompany['introduction_for_investors'];
+		 $type = $getcompany['type'];
+		 $address = $getcompany['address'];
+		 $city = $getcompany['city'];
+		 $state = $getcompany['state'];
+		 $country = $getcompany['country'];
+		 $zipcode = $getcompany['zipcode'];
+		 $phone = $getcompany['phone'];
+		 $email1 = $getcompany['email1'];
+		 $email2 = $getcompany['email2'];
+		 $company_url = $getcompany['company_url'];
+		 $facebook_url_personal = $getcompany['facebook_url_personal'];
+		 $facebook_url_company = $getcompany['facebook_url_company'];
+		 $vkontekte_address_personal = $getcompany['vkontekte_address_personal'];
+		 $vkontekte_address_company = $getcompany['vkontekte_address_company'];
+		 $odnoklassniki_address_personal = $getcompany['odnoklassniki_address_personal'];
+		 $odnoklassniki_address_company = $getcompany['odnoklassniki_address_company'];
+		 $linkedin_url = $getcompany['linkedin_url'];
+		 $twitter = $getcompany['twitter'];
+		 $is_company_registered = $getcompany['is_company_registered'];
+		 $company_details = $getcompany['company_details'];
+		 $business_plans = $getcompany['business_plans'];
+		 $financial_uploads = $getcompany['financial_uploads'];
+		 $min_amount_requested = $getcompany['min_amount_requested'];
+		 $investment_towards = $getcompany['investment_towards'];
+		 $interested_in_incrowdsourcing = $getcompany['interested_in_incrowdsourcing'];
+		 $interested_in_bd = $getcompany['interested_in_bd'];
+		 $strategy_details = $getcompany['strategy_details'];
+		 $investor_preference = $getcompany['investor_preference'];
+		 $ideal_investor = $getcompany['ideal_investor'];
+		 $bios_pics1 = $getcompany['bios_pics1'];
+		 $bios_pics2 = $getcompany['bios_pics2'];
+		 $bios_pics3 = $getcompany['bios_pics3'];
+		 $bios_pics4 = $getcompany['bios_pics4'];
+		 $bios_pics5 = $getcompany['bios_pics5'];
+		 $current_valuation = $getcompany['current_valuation'];
+		 $marketing_material1 = $getcompany['marketing_material1'];
+		 $marketing_material2 = $getcompany['marketing_material2'];
+		 $marketing_material3 = $getcompany['marketing_material3'];
+		 $marketing_material4 = $getcompany['marketing_material4'];
+		 $marketing_material5 = $getcompany['marketing_material5'];
+		 $feedback_upload = $getcompany['feedback_upload'];
+		 $feedback_text = $getcompany['feedback_text'];
+		 $short_term_goals = $getcompany['short_term_goals'];
+		 $companies_you_emulate = $getcompany['companies_you_emulate'];
+		 $competitors = $getcompany['competitors'];
+		 $market_research = $getcompany['market_research'];
+		 
 		}else{
-			$firstname	="";
+		$firstname	="";
+		$lastname	="";
+		$title = "";
+		 $company_name = "";
+		 $introduction_for_investors = "";
+		 $type = "";
+		 $address = "";
+		 $city = "";
+		 $state = "";
+		 $country = "";
+		 $zipcode = "";
+		 $phone = "";
+		 $email1 = "";
+		 $email2 = "";
+		 $company_url = "";
+		 $facebook_url_personal = "";
+		 $facebook_url_company = "";
+		 $vkontekte_address_personal = "";
+		 $vkontekte_address_company = "";
+		 $odnoklassniki_address_personal = "";
+		 $odnoklassniki_address_company = "";
+		 $linkedin_url = "";
+		 $twitter = "";
+		 $is_company_registered = "";
+		 $company_details = "";
+		 $business_plans = "";
+		 $financial_uploads = "";
+		 $min_amount_requested = "";
+		 $investment_towards = "";
+		 $interested_in_incrowdsourcing = "";
+		 $interested_in_bd = "";
+		 $strategy_details = "";
+		 $investor_preference = "";
+		 $ideal_investor = "";
+		 $bios_pics1 = "";
+		 $bios_pics2 = "";
+		 $bios_pics3 = "";
+		 $bios_pics4 = "";
+		 $bios_pics5 = "";
+		  $current_valuation = "";
+		 $marketing_material1 = "";
+		 $marketing_material2 = "";
+		 $marketing_material3 = "";
+		 $marketing_material4 = "";
+		 $marketing_material5 = "";
+		 $feedback_upload = "";
+		 $feedback_text = "";
+		 $short_term_goals = "";
+		 $companies_you_emulate = "";
+		 $competitors = "";
+		 $market_research = "";
 		}
-		print_r($getcompany);
+		
 		?>
 
           <?php 
-
 		  error_reporting(0); 
 		  $attributes = array('class' => 'company', 'id' => 'company');
 		  echo form_open('company/compregsave',$attributes);?>
@@ -402,7 +502,7 @@ $(document).ready(function() {
                             'name' => 'introduction_for_investors',
                             'id'   => 'introduction_for_investors',
                             'rows' => '3',
-							'cols' => '73',
+							'cols' => '72',
                             'value' => $introduction_for_investors,
                         ); ?>
                         <p style="text-decoration:none">
@@ -435,8 +535,8 @@ $(document).ready(function() {
                          <?php $atts = array(
                             'name' => 'first_name',
                             'id'   => 'first_name',
-                             'size' => '35',
-                            'value' => $first_name,
+                            	 'size' => '35',
+                            'value' => $firstname,
                         ); ?>
 
                           <div style="float:left;margin-bottom:10px;width:50%">
@@ -463,7 +563,7 @@ $(document).ready(function() {
                             'name' => 'last_name',
                             'id'   => 'last_name',
                             'size' => '35',
-                            'value' => set_value('last_name'), ); ?>
+                            'value' => $lastname, ); ?>
                          
 
                          <div style="float:right;margin-bottom:10px;width:50%">
@@ -488,7 +588,7 @@ $(document).ready(function() {
                             'name' => 'company_name',
                             'id'   => 'company_name',
                             'size' => '35',
-                            'value' => set_value('company_name'),
+                            'value' => $company_name,
                         ); ?>
 
                         <div style="float:left;margin-bottom:10px;width:50%">
@@ -546,7 +646,7 @@ $(document).ready(function() {
                             'name' => 'address',
                             'id'   => 'address',
                             'size' => '35',
-                            'value' => set_value('address'),
+                            'value' => $address,
                         ); ?>
                         
                         <div style="float:left;margin-bottom:10px;width:50%">
@@ -558,7 +658,7 @@ $(document).ready(function() {
                             'name' => 'city',
                             'id'   => 'city',
                             'size' => '35',
-                            'value' => set_value('city'),
+                            'value' => $city,
                         ); ?>
 
                          <div style="float:right;margin-bottom:10px;width:50%">
@@ -569,7 +669,7 @@ $(document).ready(function() {
                             'name' => 'state',
                             'id'   => 'state',
                             'size' => '35',
-                            'value' => set_value('state'),
+                            'value' => $state,
                         ); ?>
                        
                         <div style="float:left;margin-bottom:10px;width:50%">
@@ -581,7 +681,7 @@ $(document).ready(function() {
                             'name' => 'zipcode',
                             'id'   => 'zipcode',
                             'size' => '35',
-                            'value' => set_value('zipcode'),
+                            'value' => $zipcode,
                         ); ?>
 
                          <div style="float:right;margin-bottom:10px;width:50%">
@@ -592,7 +692,7 @@ $(document).ready(function() {
                             'name' => 'phone',
                             'id'   => 'phone',
                             'size' => '35',
-                            'value' => set_value('phone'),
+                            'value' => $phone,
                         ); ?>
 
                         <div style="float:left;margin-bottom:10px;width:50%">
@@ -603,7 +703,7 @@ $(document).ready(function() {
                             'name' => 'mob',
                             'id'   => 'mob',
                             'size' => '35',
-                            'value' => set_value('phone'),
+                            'value' => $phone,
                         ); ?>
 
                          <div style="float:right;margin-bottom:10px;width:50%">
@@ -615,7 +715,7 @@ $(document).ready(function() {
                             'name' => 'email1',
                             'id'   => 'email1',
                             'size' => '35',
-                            'value' => set_value('email1'),
+                            'value' => email1,
                         ); ?>
 
                          <div style="float:left;margin-bottom:10px;width:50%">
@@ -626,7 +726,7 @@ $(document).ready(function() {
                             'name' => 'email2',
                             'id'   => 'email2',
                             'size' => '35',
-                            'value' => set_value('email2'),
+                            'value' => email2,
                         ); ?>
                       
                        <div style="float:right;margin-bottom:10px;width:50%">
@@ -638,7 +738,7 @@ $(document).ready(function() {
                             'name' => 'facebook_url_personal',
                             'id'   => 'facebook_url_personal',
                             'size' => '35',
-                            'value' => set_value('Facebook_url_personal'),
+                            'value' => $Facebook_url_personal,
                         ); ?>
 
                          <div style="float:left;margin-bottom:10px;width:50%">
@@ -649,7 +749,7 @@ $(document).ready(function() {
                             'name' => 'facebook_url_company',
                             'id'   => 'facebook_url_company',
                             'size' => '35',
-                            'value' => set_value('facebook_url_company'),
+                            'value' => $facebook_url_company
                         ); ?>
                       
                         <div style="float:right;margin-bottom:10px;width:50%">
@@ -660,7 +760,7 @@ $(document).ready(function() {
                             'name' => 'vkontekte_address_personal',
                             'id'   => 'vkontekte_address_personal',
                             'size' => '35',
-                            'value' => set_value('vkontekte_address_personal'),
+                            'value' => $vkontekte_address_personal,
                         ); ?>
 
                          <div style="float:left;margin-bottom:10px;width:50%">
@@ -671,7 +771,7 @@ $(document).ready(function() {
                             'name' => 'vkontekte_address_company',
                             'id'   => 'vkontekte_address_company',
                             'size' => '35',
-                            'value' => set_value('vkontekte_address_company'),
+                            'value' => $vkontekte_address_company,
                         ); ?>
                         <div style="float:right;margin-bottom:10px;width:50%">
                            <?php echo form_label('Company Vkontekte Address:', 'vkontekte_address_company', $latts); ?><br/>
@@ -681,7 +781,7 @@ $(document).ready(function() {
                             'name' => 'odnoklassniki_address_personal',
                             'id'   => 'odnoklassniki_address_personal',
                             'size' => '35',
-                            'value' => set_value('odnoklassniki_address_personal'),
+                            'value' => $odnoklassniki_address_personal,
                         ); ?>
 
                          <div style="float:left;margin-bottom:10px;width:50%">
@@ -692,7 +792,7 @@ $(document).ready(function() {
                             'name' => 'odnoklassniki_address_company',
                             'id'   => 'odnoklassniki_address_company',
                             'size' => '35',
-                            'value' => set_value('odnoklassniki_address_company'),
+                            'value' => $odnoklassniki_address_company,
                         ); ?>
                       
                         <div style="float:right;margin-bottom:10px;width:50%">
@@ -704,7 +804,7 @@ $(document).ready(function() {
                             'name' => 'linkedin_url',
                             'id'   => 'linkedin_url',
                             'size' => '35',
-                            'value' => set_value('linkedin_url'),
+                            'value' => $linkedin_url,
                         ); ?>
 
                          <div style="float:left;margin-bottom:10px;width:50%">
@@ -715,7 +815,7 @@ $(document).ready(function() {
                             'name' => 'twitter',
                             'id'   => 'twitter',
                             'size' => '35',
-                            'value' => set_value('twitter'),
+                            'value' => $twitter,
                         ); ?>
                         <div style="float:right;margin-bottom:10px;width:50%">
                            <?php echo form_label('Twitter:', 'twitter', $latts); ?><br/>
@@ -725,8 +825,8 @@ $(document).ready(function() {
                             'name' => 'company_details',
                             'id'   => 'company_details',
                             'rows' => '7',
-							'cols' => '73',
-                            'value' => set_value('company_details'),
+							'cols' => '72',
+                            'value' => $company_details,
                         ); ?>
                    		 <div style="float:left;margin-bottom:10px;width:100%;">
                        <?php echo form_label('*Please describe in 500 words or less what makes your company or project exceptionally unique:', $latts); ?><br/>
@@ -762,7 +862,7 @@ $(document).ready(function() {
                             'name' => 'company_docs',
                             'id'   => 'company_docs',
                             'size' => '35',
-                            'value' => set_value('company_docs'),
+                            'value' => $company_docs,
                         ); ?>
                        <?php echo form_upload($atts); ?>
                         </div>
@@ -773,7 +873,7 @@ $(document).ready(function() {
                             'name' => 'business_plans',
                             'id'   => 'business_plans',
                             'size' => '35',
-                            'value' => set_value('business_plans'),
+                            'value' => $business_plans,
                         ); ?>
                        <?php echo form_upload($atts); ?>
                         </div>
@@ -785,7 +885,7 @@ $(document).ready(function() {
                             'name' => 'financial_uploads',
                             'id'   => 'financial_uploads',
                             'size' => '35',
-                            'value' => set_value('financial_uploads'),
+                            'value' => $financial_uploads,
                         ); ?>
                        <?php echo form_upload($atts); ?>
                         </div>
@@ -794,7 +894,7 @@ $(document).ready(function() {
                             'name' => 'min_amount_requested',
                             'id'   => 'min_amount_requested',
                             'size' => '35',
-                            'value' => set_value('min_amount_requested'),
+                            'value' => $min_amount_requested,
                         ); ?>
                       
                         <div style="float:right;margin-bottom:10px;width:100%;">
@@ -805,7 +905,7 @@ $(document).ready(function() {
                             'name' => 'investment_towards',
                             'id'   => 'investment_towards',
                             'size' => '70',
-                            'value' => set_value('investment_towards'),
+                            'value' => $investment_towards,
                         ); ?>
                       
                         <div style="float:right;margin-bottom:10px;width:100%;">
@@ -884,8 +984,8 @@ $(document).ready(function() {
                             'name' => 'ideal_investor',
                             'id'   => 'ideal_investor',
                             'rows' => '4',
-							'cols' => '73',
-                            'value' => set_value('ideal_investor'),
+							'cols' => '72',
+                            'value' => $ideal_investor,
                         ); ?>
 
                         <div style="float:left;width:100%;margin-bottom:10px;"> 
@@ -901,35 +1001,35 @@ $(document).ready(function() {
                             'name' => 'bios_pics1',
                             'id'   => 'bios_pics1',
                             'size' => '35',
-                            'value' => set_value('bios_pics1'),
+                            'value' => $bios_pics1,
                         ); ?>
                        <?php echo form_upload($atts); ?>
                         <?php $atts = array(
                             'name' => 'bios_pics2',
                             'id'   => 'bios_pics2',
                             'size' => '35',
-                            'value' => set_value('bios_pics2'),
+                            'value' => $bios_pics2,
                         ); ?>
                        <?php echo form_upload($atts); ?>
                         <?php $atts = array(
                             'name' => 'bios_pics3',
                             'id'   => 'bios_pics3',
                             'size' => '35',
-                            'value' => set_value('bios_pics3'),
+                            'value' => $bios_pics3,
                         ); ?>
                        <?php echo form_upload($atts); ?>
                         <?php $atts = array(
                             'name' => 'bios_pics4',
                             'id'   => 'bios_pics4',
                             'size' => '35',
-                            'value' => set_value('bios_pics4'),
+                            'value' => $bios_pics4,
                         ); ?>
                        <?php echo form_upload($atts); ?>
                         <?php $atts = array(
                             'name' => 'bios_pics5',
                             'id'   => 'bios_pics5',
                             'size' => '35',
-                            'value' => set_value('bios_pics5'),
+                            'value' => $bios_pics5,
                         ); ?>
                        <?php echo form_upload($atts); ?>
                       </div> 
@@ -937,8 +1037,8 @@ $(document).ready(function() {
                             'name' => 'strategy_details',
                             'id'   => 'strategy_details',
                             'rows' => '5',
-							'cols' => '73',
-                            'value' => set_value('strategy_details'),
+							'cols' => '72',
+                            'value' => $strategy_details,
                         ); ?>
                       <div style="float:left;width:100%;margin-bottom:10px;"> 
                            <?php echo form_label('Brief strategy description:', $latts); ?><br/>
@@ -948,8 +1048,8 @@ $(document).ready(function() {
                             'name' => 'current_valuation',
                             'id'   => 'current_valuation',
                             'rows' => '5',
-							'cols' => '73',
-                            'value' => set_value('current_valuation'),
+							'cols' => '72',
+                            'value' => $current_valuation,
                         ); ?>
                       <div style="float:left;width:100%;margin-bottom:10px;"> 
                            <?php echo form_label('What is your current valuation you are attaching to your company/project and how have you roughly determined this?', $latts); ?><br/>
@@ -959,8 +1059,8 @@ $(document).ready(function() {
                             'name' => 'major_assets',
                             'id'   => 'major_assets',
                             'rows' => '5',
-							'cols' => '73',
-                            'value' => set_value('major_assets'),
+							'cols' => '72',
+                            'value' => $major_assets,
                         ); ?>
                       <div style="float:left;width:100%;margin-bottom:10px;"> 
                            <?php echo form_label('*What are its major existing assets?:', $latts); ?><br/>
@@ -972,35 +1072,35 @@ $(document).ready(function() {
                             'name' => 'marketing_material1',
                             'id'   => 'marketing_material1',
                             'size' => '35',
-                            'value' => set_value('marketing_material1'),
+                            'value' => $marketing_material1,
                         ); ?>
                        <?php echo form_upload($atts); ?>
                         <?php $atts = array(
                             'name' => 'marketing_material2',
                             'id'   => 'marketing_material2',
                             'size' => '35',
-                            'value' => set_value('marketing_material2'),
+                            'value' => $marketing_material2,
                         ); ?>
                        <?php echo form_upload($atts); ?>
                         <?php $atts = array(
                             'name' => 'marketing_material3',
                             'id'   => 'marketing_material3',
                             'size' => '35',
-                            'value' => set_value('marketing_material3'),
+                            'value' => $marketing_material3,
                         ); ?>
                        <?php echo form_upload($atts); ?>
                         <?php $atts = array(
                             'name' => 'marketing_material4',
                             'id'   => 'marketing_material4',
                             'size' => '35',
-                            'value' => set_value('marketing_material4'),
+                            'value' => $marketing_material4,
                         ); ?>
                        <?php echo form_upload($atts); ?>
                         <?php $atts = array(
                             'name' => 'marketing_material5',
                             'id'   => 'marketing_material5',
                             'size' => '35',
-                            'value' => set_value('marketing_material5'),
+                            'value' => $marketing_material5,
                         ); ?>
                        <?php echo form_upload($atts); ?>
                       </div> 
@@ -1010,15 +1110,15 @@ $(document).ready(function() {
                             'name' => 'feedback_upload',
                             'id'   => 'feedback_upload',
                             'size' => '35',
-                            'value' => set_value('feedback_upload'),
+                            'value' => $feedback_upload,
                         ); ?>
                        <?php echo form_upload($atts); ?>
                         <?php $atts = array(
                             'name' => 'feedback_text',
                             'id'   => 'feedback_text',
                             'rows' => '5',
-							'cols' => '73',
-                            'value' => set_value('feedback_text'),
+							'cols' => '72',
+                            'value' => $feedback_text,
                         ); ?>
                          <br/>
                            <?php echo form_textarea($atts); ?>
@@ -1031,8 +1131,8 @@ $(document).ready(function() {
                             'name' => 'short_term_goals',
                             'id'   => 'short_term_goals',
                             'rows' => '5',
-							'cols' => '73',
-                            'value' => set_value('short_term_goals'),
+							'cols' => '72',
+                            'value' => $short_term_goals,
                         ); ?>
                          <br/>
                            <?php echo form_textarea($atts); ?>
@@ -1044,8 +1144,8 @@ $(document).ready(function() {
                             'name' => 'companies_you_emulate',
                             'id'   => 'companies_you_emulate',
                             'rows' => '5',
-							'cols' => '73',
-                            'value' => set_value('companies_you_emulate'),
+							'cols' => '72',
+                            'value' => $companies_you_emulate,
                         ); ?>
                          <br/>
                            <?php echo form_textarea($atts); ?>
@@ -1057,8 +1157,8 @@ $(document).ready(function() {
                             'name' => 'competitors',
                             'id'   => 'competitors',
                             'rows' => '5',
-							'cols' => '73',
-                            'value' => set_value('competitors'),
+							'cols' => '72',
+                            'value' => $competitors,
                         ); ?>
                          <br/>
                            <?php echo form_textarea($atts); ?>
@@ -1071,8 +1171,8 @@ $(document).ready(function() {
                             'name' => 'market_research',
                             'id'   => 'market_research',
                             'rows' => '5',
-							'cols' => '73',
-                            'value' => set_value('market_research'),
+							'cols' => '72',
+                            'value' => $market_research,
                         ); ?>
                          <br/>
                            <?php echo form_textarea($atts); ?>

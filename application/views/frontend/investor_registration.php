@@ -5,7 +5,118 @@
       <div class="box"> 
       <div class="box-heading">Investor Registration </div></div>
       <div class="box" >
-
+		<?php
+		if(count($getinvestor)>1){
+		 $firstname = $getinvestor['first_name']; 
+		 $lastname = $getinvestor['last_name'];
+		 $company = $getinvestor['company'];
+		 $photograph = $getinvestor['photograph'];
+		 $company_logo = $getinvestor['company_logo'];
+		 $project_type = $getinvestor['project_type'];
+		 $other = $getinvestor['other'];
+		 $address = $getinvestor['address'];
+		 $city = $getinvestor['city'];
+		 $state = $getinvestor['state'];
+		 $zipcode = $getinvestor['zipcode'];
+		 $phone = $getinvestor['phone'];
+		 $contact_number = $getinvestor['contact_number'];
+		 $email1 = $getinvestor['email1'];
+		 $email2 = $getinvestor['email2'];
+		 $skype = $getinvestor['skype'];
+		 $company_url = $getinvestor['company_url'];
+		 $facebook_url_personal = $getinvestor['facebook_url_personal'];
+		 $facebook_url_company = $getinvestor['facebook_url_company'];
+		 $twitter = $getinvestor['twitter'];
+		 $company_details = $getinvestor['company_details'];
+		 $other_company_type = $getinvestor['other_company_type'];
+		 $linkedin_url = $getinvestor['linkedin_url'];
+		 $state_company_registered = $getinvestor['state_company_registered'];
+		 $country = $getinvestor['country'];
+		 $company_type = $getinvestor['company_type'];
+		 $current_capitalization = $getinvestor['current_capitalization'];
+		 $seeking_company = $getinvestor['seeking_company'];
+		 $investment_size = $getinvestor['investment_size'];
+		 $min_amt = $getinvestor['min_amt'];
+		 $max_amt = $getinvestor['max_amt'];
+		 $ownership_share = $getinvestor['ownership_share'];
+		 $control_percentage = $getinvestor['control_percentage'];
+		 $investor_details = $getinvestor['investor_details'];
+		 $companies_looking = $getinvestor['companies_looking'];
+		 $experience_in_russia = $getinvestor['experience_in_russia'];
+		 $experience_in_investment = $getinvestor['experience_in_investment'];
+		 $portfolio = $getinvestor['portfolio'];
+		 $average_roi = $getinvestor['average_roi'];
+		 $time_for_returns = $getinvestor['time_for_returns'];
+		 $about_investment = $getinvestor['about_investment'];
+		 $investing_experience = $getinvestor['investing_experience'];
+		 $ratings = $getinvestor['ratings'];
+		 $interested_in_crowdsourcing = $getinvestor['interested_in_crowdsourcing'];
+		 $project_consideration = $getinvestor['project_consideration'];
+		 $partners_consideration = $getinvestor['partners_consideration'];
+		 $companies_intrested_in = $getinvestor['companies_intrested_in'];
+		 $investment_strategies = $getinvestor['investment_strategies'];
+		 $competitors = $getinvestor['competitors'];
+		 $create_date = $getinvestor['create_date'];
+		 $status = $getinvestor['status'];
+		 
+		 
+		 
+		}else{
+		$firstname	="";
+		$lastname	="";
+		$company = "";
+		 $photograph = "";
+		 $company_logo = "";
+		 $project_type = "";
+		 $other = "";
+		 $address = "";
+		 $city = "";
+		 $state = "";
+		 $zipcode = "";
+		 $phone = "";
+		 $contact_number = "";
+		 $email1 = "";
+		 $email2 = "";
+		 $skype = "";
+		 $company_url = "";
+		 $facebook_url_personal = "";
+		 $facebook_url_company = "";
+		 $twitter = "";
+		 $company_details = "";
+		 $other_company_type = "";
+		 $linkedin_url = "";
+		 $state_company_registered = "";
+		 $country = "";
+		 $company_type = "";
+		 $current_capitalization = "";
+		 $seeking_company = "";
+		 $investment_size = "";
+		 $min_amt = "";
+		 $max_amt = "";
+		 $ownership_share = "";
+		 $control_percentage = "";
+		 $investor_details = "";
+		 $companies_looking = "";
+		 $experience_in_russia = "";
+		 $experience_in_investment = "";
+		 $portfolio = "";
+		 $average_roi = "";
+		 $time_for_returns = "";
+		 $about_investment = "";
+		 $investing_experience = "";
+		 $ratings = "";
+		 $interested_in_crowdsourcing = "";
+		 $project_consideration = "";
+		 $partners_consideration = "";
+		 $companies_intrested_in = "";
+		 $investment_strategies = "";
+		 $competitors = "";
+		 $create_date = "";
+		 $status = "";
+		 
+		}
+		
+		?>
           <?php echo form_open('investor/investregsave');?>
 
             <fieldset>
@@ -39,7 +150,7 @@
                             'name' => 'first_name',
                             'id'   => 'first_name',
                             'size' => '35',
-                            'value' => set_value('first_name'),
+                            'value' => $firstname,
                         ); ?>
 
                          <div style="float:left;margin-bottom:10px">
@@ -51,7 +162,7 @@
                             'name' => 'last_name',
                             'id'   => 'last_name',
                             'size' => '35',
-                            'value' => set_value('last_name'),
+                            'value' => $lastname,
                         ); ?>
 
                          <div style="float:right;margin-bottom:10px">
@@ -63,7 +174,7 @@
                             'name' => 'company',
                             'id'   => 'company',
                             'size' => '35',
-                            'value' => set_value('company'),
+                            'value' => $company,
                         ); ?>
 
                         <div style="float:left;margin-bottom:10px">
@@ -76,7 +187,7 @@
                             'name' => 'photograph',
                             'id'   => 'photograph',
                             'size' => '35',
-                            'value' => set_value('photograph'),
+                            'value' => $photograph,
                         ); ?>
                        <?php echo form_upload($atts); ?>
                         </div>
@@ -86,7 +197,7 @@
                                 'name' => 'company_logo',
                                 'id'   => 'company_logo',
                                 'size' => '35',
-                                'value' => set_value('company_logo'),
+                                'value' => $company_logo,
                             ); ?>
                            <?php echo form_upload($atts); ?>
                         </div>
@@ -137,7 +248,7 @@
                             'name' => 'address',
                             'id'   => 'address',
                             'size' => '35',
-                            'value' => set_value('address'),
+                            'value' => $address,
                         ); ?>
                         
                         <div style="float:left;margin-bottom:10px">
@@ -149,7 +260,7 @@
                             'name' => 'city',
                             'id'   => 'city',
                             'size' => '35',
-                            'value' => set_value('city'),
+                            'value' => $city,
                         ); ?>
 
                          <div style="float:right;margin-bottom:10px">
@@ -160,7 +271,7 @@
                             'name' => 'state',
                             'id'   => 'state',
                             'size' => '35',
-                            'value' => set_value('state'),
+                            'value' => $state,
                         ); ?>
                        
                         <div style="float:left;margin-bottom:10px">
@@ -172,7 +283,7 @@
                             'name' => 'zipcode',
                             'id'   => 'zipcode',
                             'size' => '35',
-                            'value' => set_value('zipcode'),
+                            'value' => $zipcode,
                         ); ?>
 
                          <div style="float:right;margin-bottom:10px;">
@@ -183,7 +294,7 @@
                             'name' => 'phone',
                             'id'   => 'phone',
                             'size' => '35',
-                            'value' => set_value('phone'),
+                            'value' => $phone,
                         ); ?>
 
                          <div style="float:left;margin-bottom:10px;width:100%">
@@ -195,7 +306,7 @@
                             'name' => 'skype',
                             'id'   => 'skype',
                             'size' => '35',
-                            'value' => set_value('skype'),
+                            'value' => $skype,
                         ); ?>
  						 <div style="float:left;margin-bottom:10px;">
                            <?php echo form_label('Skype:', 'skype', $latts); ?><br/>
@@ -207,7 +318,7 @@
                             'name' => 'company_url',
                             'id'   => 'company_url',
                             'size' => '35',
-                            'value' => set_value('company_url'),
+                            'value' => $company_url,
                         ); ?>
 
                         
@@ -220,7 +331,7 @@
                             'name' => 'email1',
                             'id'   => 'email1',
                             'size' => '35',
-                            'value' => set_value('email1'),
+                            'value' => $email1,
                         ); ?>
 
                          <div style="float:left;margin-bottom:10px">
@@ -231,7 +342,7 @@
                             'name' => 'email2',
                             'id'   => 'email2',
                             'size' => '35',
-                            'value' => set_value('email2'),
+                            'value' => $email2,
                         ); ?>
                       
                         <div style="float:right;margin-bottom:10px">
@@ -243,7 +354,7 @@
                             'name' => 'facebook_url_personal',
                             'id'   => 'facebook_url_personal',
                             'size' => '35',
-                            'value' => set_value('Facebook_url_personal'),
+                            'value' => $facebook_url_personal,
                         ); ?>
 
                          <div style="float:left;margin-bottom:10px">
@@ -254,7 +365,7 @@
                             'name' => 'facebook_url_company',
                             'id'   => 'facebook_url_company',
                             'size' => '35',
-                            'value' => set_value('facebook_url_company'),
+                            'value' => $facebook_url_company,
                         ); ?>
                       
                         <div style="float:right;margin-bottom:10px">
@@ -266,7 +377,7 @@
                             'name' => 'linkedin_url',
                             'id'   => 'linkedin_url',
                             'size' => '35',
-                            'value' => set_value('linkedin_url'),
+                            'value' => $linkedin_url,
                         ); ?>
 
                          <div style="float:left;margin-bottom:10px">
@@ -277,7 +388,7 @@
                             'name' => 'twitter',
                             'id'   => 'twitter',
                             'size' => '35',
-                            'value' => set_value('twitter'),
+                            'value' => $twitter,
                         ); ?>
                         <div style="float:right;margin-bottom:10px">
                            <?php echo form_label('Twitter:', 'twitter', $latts); ?><br/>
@@ -287,8 +398,8 @@
                             'name' => 'company_details',
                             'id'   => 'company_details',
                             'rows' => '7',
-							'cols' => '60',
-                            'value' => set_value('company_details'),
+							'cols' => '72',
+                            'value' => $company_details,
                         ); ?>
                    		<div style="float:left;margin-bottom:10px;width:100%;">
                        <?php echo form_label('*Please describe in 500 words or less what makes your company or project exceptionally unique:', $latts); ?><br/>
@@ -300,7 +411,7 @@
                             'name' => 'state_company_registered',
                             'id'   => 'state_company_registered',
                             'size' => '35',
-                            'value' => set_value('state_company_registered'),
+                            'value' => $state_company_registered,
                         ); ?>
                             <?php echo form_input($atts); ?>
                            
@@ -311,7 +422,7 @@
                             'name' => 'country',
                             'id'   => 'country',
                             'size' => '35',
-                            'value' => set_value('country'),
+                            'value' => $country,
                         ); ?>
 						   <?php echo form_input($atts); ?>
                          </div>
@@ -337,7 +448,7 @@
                             'name' => 'other_company_type',
                             'id'   => 'other_company_type',
                             'size' => '35',
-                            'value' => set_value('other_company_type'),
+                            'value' => $other_company_type,
                         ); ?>
                           <?php echo form_input($atts); ?>
                         
@@ -349,7 +460,7 @@
                             'name' => 'current_capitalization',
                             'id'   => 'current_capitalization',
                             'size' => '10',
-                            'value' => set_value('current_capitalization'),
+                            'value' => $current_capitalization,
                         ); ?>
                           <?php echo form_input($atts); ?>
        
@@ -358,8 +469,8 @@
                             'name' => 'seeking_company',
                             'id'   => 'seeking_company',
                             'rows' => '7',
-							'cols' => '60',
-                            'value' => set_value('seeking_company'),
+							'cols' => '72',
+                            'value' => $seeking_company,
                         ); ?>
                         <div style="float:left;margin-bottom:10px;width:100%;">
                        <?php echo form_label('*Please describe in 500 words the , as exactly as possible, the type of company you are seeking to invest in?', $latts); ?><br/>
@@ -371,7 +482,7 @@
                             'name' => 'investment_size',
                             'id'   => 'investment_size',
                             'size' => '20',
-                            'value' => set_value('investment_size'),
+                            'value' => $investment_size,
                         ); ?>
                           <?php echo form_input($atts); ?>
        
@@ -382,7 +493,7 @@
                             'name' => 'investment_size',
                             'id'   => 'investment_size',
                             'size' => '20',
-                            'value' => set_value('investment_size'),
+                            'value' => $investment_size,
                         ); ?>
                           <?php echo form_input($atts); ?>
        
@@ -394,7 +505,7 @@
                             'name' => 'min_amt',
                             'id'   => 'min_amt',
                             'size' => '35',
-                            'value' => set_value('min_amt'),
+                            'value' => $min_amt,
                         ); ?>
                           <?php echo form_input($atts); ?>
        
@@ -405,7 +516,7 @@
                             'name' => 'max_amt',
                             'id'   => 'max_amt',
                             'size' => '35',
-                            'value' => set_value('max_amt'),
+                            'value' => $max_amt,
                         ); ?>
                        <?php echo form_input($atts); ?>
                         </div>
@@ -415,7 +526,7 @@
                             'name' => 'ownership_share',
                             'id'   => 'ownership_share',
                             'size' => '35',
-                            'value' => set_value('ownership_share'),
+                            'value' => $ownership_share,
                         ); ?>
                        <?php echo form_input($atts); ?>
                         </div>
@@ -427,7 +538,7 @@
                             'name' => 'control_percentage',
                             'id'   => 'control_percentage',
                             'size' => '35',
-                            'value' => set_value('control_percentage'),
+                            'value' => $control_percentage,
                         ); ?>
                        <?php echo form_input($atts); ?>
                        
@@ -436,8 +547,8 @@
                             'name' => 'investor_details',
                             'id'   => 'investor_details',
                             'rows' => '7',
-							'cols' => '60',
-                            'value' => set_value('investor_details'),
+							'cols' => '72',
+                            'value' => $investor_details,
                         ); ?>
                    		 <div style="float:left;margin-bottom:10px;width:100%;">
                        <?php echo form_label('*If you would like to be a hands-on investor, please describe how you would like to be actively involved?', $latts); ?><br/>
@@ -462,8 +573,9 @@
 					  <?php $atts = array(
                             'name' => 'experience_in_russia',
                             'id'   => 'experience_in_russia',
-                            'size' => '35',
-                            'value' => set_value('experience_in_russia'),
+                            'rows' => '7',
+							'cols' => '72',
+                            'value' => $experience_in_russia,
                         ); ?>
                        <?php echo form_input($atts); ?>
                        
@@ -475,7 +587,7 @@
                             'name' => 'experience_in_investment',
                             'id'   => 'experience_in_investment',
                             'size' => '35',
-                            'value' => set_value('experience_in_investment'),
+                            'value' => $experience_in_investment,
                         ); ?>
                        <?php echo form_input($atts); ?>
                        
@@ -486,8 +598,9 @@
 					  <?php $atts = array(
                             'name' => 'portfolio',
                             'id'   => 'portfolio',
-                            'size' => '35',
-                            'value' => set_value('portfolio'),
+                            'rows' => '7',
+							'cols' => '72',
+                            'value' => $portfolio,
                         ); ?>
                        <?php echo form_textarea($atts); ?>
                        
@@ -499,7 +612,7 @@
                             'name' => 'average_roi',
                             'id'   => 'average_roi',
                             'size' => '35',
-                            'value' => set_value('average_roi'),
+                            'value' => $average_roi,
                         ); ?>
                        <?php echo form_input($atts); ?>
                        
@@ -510,7 +623,7 @@
                             'name' => 'time_for_returns',
                             'id'   => 'time_for_returns',
                             'size' => '35',
-                            'value' => set_value('time_for_returns'),
+                            'value' => $time_for_returns,
                         ); ?>
                        <?php echo form_input($atts); ?>
                        
@@ -522,7 +635,7 @@
                             'name' => 'about_investment',
                             'id'   => 'about_investment',
                             'size' => '35',
-                            'value' => set_value('about_investment'),
+                            'value' => $about_investment,
                         ); ?>
                        <?php echo form_input($atts); ?>
                        </div>
@@ -531,7 +644,7 @@
                             'name' => 'investing_experience',
                             'id'   => 'investing_experience',
                             'size' => '35',
-                            'value' => set_value('investing_experience'),
+                            'value' => $investing_experience,
                         ); ?>
                       
                         <div style="float:right;margin-bottom:10px;width:100%;">
@@ -542,7 +655,7 @@
                             'name' => 'ratings',
                             'id'   => 'ratings',
                             'size' => '15',
-                            'value' => set_value('ratings'),
+                            'value' => $ratings,
                         ); ?>
                       
                         <div style="float:right;margin-bottom:10px;width:100%;">
@@ -624,7 +737,9 @@
                             'name' => 'companies_intrested_in',
                             'id'   => 'companies_intrested_in',
                             'size' => '35',
-                            'value' => set_value('companies_intrested_in'),
+							'rows' => '5',
+							'cols' => '72',
+                            'value' => $companies_intrested_in,
                         ); ?>
                        <?php echo form_textarea($atts); ?>
                         </div>
@@ -634,7 +749,9 @@
                             'name' => 'investment_strategies',
                             'id'   => 'investment_strategies',
                             'size' => '35',
-                            'value' => set_value('investment_strategies'),
+							'rows' => '5',
+							'cols' => '72',
+                            'value' => $investment_strategies,
                         ); ?>
                        <?php echo form_textarea($atts); ?>
                         </div>
@@ -645,7 +762,9 @@
                             'name' => 'competitors',
                             'id'   => 'competitors',
                             'size' => '35',
-                            'value' => set_value('competitors'),
+							'rows' => '5',
+							'cols' => '72',
+                            'value' => $competitors,
                         ); ?>
                        <?php echo form_textarea($atts); ?>
                         </div>
