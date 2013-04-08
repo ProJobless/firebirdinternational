@@ -16,6 +16,7 @@
                      <?php }else{ ?>
 					<li class="category57"><a href="<?php echo base_url()?>user/profile">My Profile</a></li>
 					<?php } ?> 
+					<li class="category57"><a href="<?php echo base_url(); ?>user/changepassword">Update Password</a></li>	
 					<li class="category57"><a href="<?php echo base_url(); ?>user/logout">logout</a></li>	
 					
 			</ul>
