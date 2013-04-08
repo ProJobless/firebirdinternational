@@ -5,17 +5,19 @@
       <div class="box-heading">My Account</div>
         <div class="box-content box-category">
             <ul id="custom_accordion">
-		           <?php if($this->session->userdata('user_type') == "company") { ?>
+		           <?php 
+				   if($this->session->userdata('user_status')==1){
+				   if($this->session->userdata('user_type') == "company") { ?>
                        <li class="category57"><a href="<?php echo base_url()?>project/addnew">Add New Project</a></li>
                         <li class="category57"><a href="<?php echo base_url()?>company">Add Company</a></li>
                     <?php  } ?>
                     <?php if($this->session->userdata('user_type') == "investor") { ?>
-                        <li class="category57"><a href="<?php echo base_url()?>company">Add Investor</a></li>
+                        <li class="category57"><a href="<?php echo base_url()?>investor">Add Investor</a></li>
                     <?php  } ?> 
                       <li class="category57"><a href="<?php echo base_url()?>user/editProfile">My Profile</a></li>
-                      <li class="category57"><a href="#">My Watch List</a></li>
-                      <li class="category57"><a href="#">Financial Dashboard</a></li>
-        
+                    <?php }else{ ?>
+					<li class="category57"><a href="<?php echo base_url()?>user/profile">My Profile</a></li>
+					<?php } ?> 
 			</ul>
         </div>
       <?php }else { ?>
