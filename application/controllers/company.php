@@ -33,9 +33,15 @@ class Company extends CI_Controller {
 			$data['news'] = $query ; 
 		}
 		if(!empty($userdata)){
+
 			$data['main_content'] ='frontend/company_registration';
 			$data['meta_title']   = 'Profile | Firebird International';
 			$data['user_id'] 		= $this->session->userdata('user_id');
+			// Get Company Detail if already
+			$this->load->model('Company_Model');
+			$query = $this->Company_Model->getcompany($data['user_id']);
+			$data['getcompany'] = $query ;
+
 			$this->load->view('frontend/includes/template', $data);
 		} else{
 			redirect('user/login');
@@ -109,6 +115,8 @@ class Company extends CI_Controller {
 			redirect('payment');
 		}
 	}
+
+
 	
 }
 /* End of file welcome.php */

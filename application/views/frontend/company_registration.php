@@ -367,8 +367,18 @@ $(document).ready(function() {
       <div class="box"> 
       <div class="box-heading">Company Registration </div></div>
       <div class="box" >
+	  <?php
+		if(count($getcompany)>1){
+			$first_name = $getcompany['first_name']; 
+			$introduction_for_investors =$getcompany['introduction_for_investors'] ;
+		}else{
+			$firstname	="";
+		}
+		print_r($getcompany);
+		?>
 
           <?php 
+
 		  error_reporting(0); 
 		  $attributes = array('class' => 'company', 'id' => 'company');
 		  echo form_open('company/compregsave',$attributes);?>
@@ -392,8 +402,8 @@ $(document).ready(function() {
                             'name' => 'introduction_for_investors',
                             'id'   => 'introduction_for_investors',
                             'rows' => '3',
-							'cols' => '35',
-                            'value' => set_value('introduction_for_investors'),
+							'cols' => '73',
+                            'value' => $introduction_for_investors,
                         ); ?>
                         <p style="text-decoration:none">
                         <?php 
@@ -425,8 +435,8 @@ $(document).ready(function() {
                          <?php $atts = array(
                             'name' => 'first_name',
                             'id'   => 'first_name',
-                            	 'size' => '35',
-                            'value' => set_value('first_name'),
+                             'size' => '35',
+                            'value' => $first_name,
                         ); ?>
 
                           <div style="float:left;margin-bottom:10px;width:50%">
@@ -715,7 +725,7 @@ $(document).ready(function() {
                             'name' => 'company_details',
                             'id'   => 'company_details',
                             'rows' => '7',
-							'cols' => '60',
+							'cols' => '73',
                             'value' => set_value('company_details'),
                         ); ?>
                    		 <div style="float:left;margin-bottom:10px;width:100%;">
@@ -874,7 +884,7 @@ $(document).ready(function() {
                             'name' => 'ideal_investor',
                             'id'   => 'ideal_investor',
                             'rows' => '4',
-							'cols' => '50',
+							'cols' => '73',
                             'value' => set_value('ideal_investor'),
                         ); ?>
 
@@ -927,7 +937,7 @@ $(document).ready(function() {
                             'name' => 'strategy_details',
                             'id'   => 'strategy_details',
                             'rows' => '5',
-							'cols' => 60,
+							'cols' => '73',
                             'value' => set_value('strategy_details'),
                         ); ?>
                       <div style="float:left;width:100%;margin-bottom:10px;"> 
@@ -938,7 +948,7 @@ $(document).ready(function() {
                             'name' => 'current_valuation',
                             'id'   => 'current_valuation',
                             'rows' => '5',
-							'cols' => 60,
+							'cols' => '73',
                             'value' => set_value('current_valuation'),
                         ); ?>
                       <div style="float:left;width:100%;margin-bottom:10px;"> 
@@ -949,7 +959,7 @@ $(document).ready(function() {
                             'name' => 'major_assets',
                             'id'   => 'major_assets',
                             'rows' => '5',
-							'cols' => 60,
+							'cols' => '73',
                             'value' => set_value('major_assets'),
                         ); ?>
                       <div style="float:left;width:100%;margin-bottom:10px;"> 
@@ -1007,7 +1017,7 @@ $(document).ready(function() {
                             'name' => 'feedback_text',
                             'id'   => 'feedback_text',
                             'rows' => '5',
-							'cols' => 60,
+							'cols' => '73',
                             'value' => set_value('feedback_text'),
                         ); ?>
                          <br/>
@@ -1021,7 +1031,7 @@ $(document).ready(function() {
                             'name' => 'short_term_goals',
                             'id'   => 'short_term_goals',
                             'rows' => '5',
-							'cols' => 60,
+							'cols' => '73',
                             'value' => set_value('short_term_goals'),
                         ); ?>
                          <br/>
@@ -1034,7 +1044,7 @@ $(document).ready(function() {
                             'name' => 'companies_you_emulate',
                             'id'   => 'companies_you_emulate',
                             'rows' => '5',
-							'cols' => 60,
+							'cols' => '73',
                             'value' => set_value('companies_you_emulate'),
                         ); ?>
                          <br/>
@@ -1047,7 +1057,7 @@ $(document).ready(function() {
                             'name' => 'competitors',
                             'id'   => 'competitors',
                             'rows' => '5',
-							'cols' => 60,
+							'cols' => '73',
                             'value' => set_value('competitors'),
                         ); ?>
                          <br/>
@@ -1061,7 +1071,7 @@ $(document).ready(function() {
                             'name' => 'market_research',
                             'id'   => 'market_research',
                             'rows' => '5',
-							'cols' => 60,
+							'cols' => '73',
                             'value' => set_value('market_research'),
                         ); ?>
                          <br/>
