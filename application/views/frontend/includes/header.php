@@ -11,8 +11,8 @@
 
 <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
 <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Crete+Round:400,400italic">
-<link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet" type="text/css" />
- <script type="text/javascript" src="<?php echo base_url(); ?>js//jquery-latest.js"></script>
+<link href="<?php echo base_url(); ?>css/style.css?v=1.0" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-latest.js"></script>
     <script type="text/javascript">
         $(function() {
           if ($.browser.msie && $.browser.version.substr(0,1)<7)

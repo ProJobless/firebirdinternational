@@ -23,7 +23,7 @@
   <div class="column">
     <h3>Community</h3>
     <ul>
-      <li><a href="#">Blog</a></li>
+      <li><a href="<?php echo base_url(); ?>blog">Blog</a></li>
       <li><a href="<?php echo base_url(); ?>meeting">Events</a></li>
 	  <li><a href="<?php echo base_url(); ?>news/viewnews/10">Support</a></li>
       <li><a href="<?php echo base_url(); ?>news/viewnews/14">Affiliates</a></li>
