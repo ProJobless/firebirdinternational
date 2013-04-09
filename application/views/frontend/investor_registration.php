@@ -1,3 +1,329 @@
+<link rel="stylesheet" href="public/admin/css/screenuser.css?v=1" type="text/css" media="screen" title="default" />
+<!--[if IE]>
+<link rel="stylesheet" media="all" type="text/css" href="css/pro_dropline_ie.css" />
+<![endif]-->
+<!--  checkbox styling script -->
+<script src="public/admin/js/jquery/ui.core.js" type="text/javascript"></script>
+<script src="public/admin/js/jquery/ui.checkbox.js" type="text/javascript"></script>
+<script src="public/admin/js/jquery/jquery.bind.js" type="text/javascript"></script>
+<script src="public/admin/js/jquery/jquery_main.js"  type="text/javascript"></script>
+<script src="public/admin/js/jquery/jquery.validate.js"  type="text/javascript"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {	
+
+	var container = $('div.error-inner');
+	var validator1 = $("#investor").validate({
+	                    //FOR THIS Option You will have to use jquery.metadata.js 
+	//highlight:false,
+	//unhighlight:false,
+	rules: {
+ first_name: {
+			required: true
+		},
+		
+ last_name: {
+			required: true
+		},
+ company: {
+			required: true
+		 },
+ photograph: {
+			required: true
+		},
+ company_logo: {
+			required: true
+		},		 
+		 
+ other: {
+			required: true
+		},
+ address: {
+	 	required: true
+		},
+ city: {
+			required: true
+		},
+ state: {
+			required: true
+		},
+ zipcode: {
+			required: true
+		    },
+ phone: {
+		required: true,
+		 minlength: 10,
+		 number : true
+		    },
+ mob: {
+		required: true,
+		 minlength: 10,
+		 number : true
+		    },
+ skype:{
+        required:true
+       		},
+ company_url:{
+        required:true,
+		url:true
+       		},
+			
+ email1: {
+	required: true,
+	email: true 
+		    },
+ email2: {
+	    required:true,
+		email: true 	
+			},
+ facebook_url_personal: {
+			required: true,
+			url: true,		
+					},	
+ facebook_url_company: {
+			required: true,
+			url: true,
+			},
+ linkedin_url: {
+			required: true,
+			url: true,
+			},
+ twitter: {
+			required: true,
+			url: true,
+			},
+ company_details:{
+			required: true
+		},
+ state_company_registered:{
+			required: true
+		},
+ country:{
+	 required:true
+	 
+	    },
+ seeking_company:{
+	 required:true
+	         },	
+ investment_size:{
+	 required:true
+	         },	
+ min_amt:{
+	 required:true
+	         },	
+ max_amt:{
+	 required:true
+	         },
+ ownership_share:{
+	 required:true
+	         },	
+ control_percentage:{
+	 required:true
+	         },	
+ investor_details:{
+	 required:true
+	         },	
+ experience_in_russia:{
+	 required:true
+	         },	
+ experience_in_investment:{
+	 required:true
+	         },	
+ portfolio:{
+	 required:true
+	         },	
+ average_roi:{
+	 required:true
+	         },
+ time_for_returns:{
+	 required:true
+	         },
+ about_investment:{
+	 required:true
+	         },
+ investing_experience:{
+	 required:true
+	         },
+ ratings:{
+	 required:true
+	         },	
+ companies_intrested_in:{
+	 required:true
+	         },		
+investment_strategies:{
+	 required:true
+	         },		
+ competitors:{
+	 required:true
+	         },		
+ other_company_type:{
+	 required:true
+	         },		
+ current_capitalization:{
+	 required:true
+	         },		
+		},
+	messages:{
+	
+  first_name:{
+	required:"<td><div class='error-left'></div float:left><div class='error-inner'>The First Name is required.</div></td>",
+			},
+
+ last_name:{
+		required:"<td><div class='error-left'></div float:left><div class='error-inner'>The Last Name field is required.</div></td>",
+		},
+ company:{
+        	required:"<td><div class='error-left'></div float:left><div class='error-inner'>The Company Name field is required.</div></td>",
+		},
+ photograph: {
+		required:"<td><div class='error-left'></div float:left><div class='error-inner'>This field is required.</div></td>",
+		},	
+ company_logo: {
+		required:"<td><div class='error-left'></div float:left><div class='error-inner'>This field is required.</div></td>",
+		},
+ other: {
+		required:"<td><div class='error-left'></div float:left><div class='error-inner'>This field is required.</div></td>",
+		},
+
+ address:{
+		required:"<td><div class='error-left'></div float:left><div class='error-inner'>The Address field is required.</div></td>",
+		},
+ city: {
+		required:"<td><div class='error-left'></div float:left><div class='error-inner'>The City field is required.</div></td>",
+		},
+ state: {
+		required:"<td><div class='error-left'></div float:left><div class='error-inner'> The State field is required.</div></td>",
+		},
+ zipcode: {
+		required:"<td><div class='error-left'></div float:left><div class='error-inner'> The Zipcode field is required.</div></td>",
+		},
+ phone: {
+	required:"<td><div class='error-left'></div float:left><div class='error-inner'>The Phone Number field is required.</div></td>",
+   	minlength:"<td><div class='error-left'></div float:left><div class='error-inner'>Please Enter atleast 10 digit Number.</div></td>",
+	number:"<div class='error-inner' style='float:inherit'>                   Please Enter a valid Contact Number</div>"
+				},
+ mob: {
+	  required:"<td><div class='error-left'></div float:left><div class='error-inner'>The Mobile Number field is required.</div></td>",
+   	minlength:"<td><div class='error-left'></div float:left><div class='error-inner'>Please Enter atleast 10 digit Number.</div></td>",
+	number:"<div class='error-inner' style='float:inherit'>                   Please Enter a valid Contact Number</div>"	
+			    },			
+ skype:{
+        required:"<td><div class='error-left'></div float:left><div class='error-inner'> The Skype field is required.</div></td>",
+       		    },
+ company_url:{
+     required:"<td><div class='error-left'></div float:left><div class='error-inner'> The Company field is required.</div></td>",
+	     url:"<td><div class='error-left'></div float:left><div class='error-inner'> The Company field is required.</div></td>",
+        
+       		},
+				 
+ email1:{
+        required:"<td><div class='error-left'></div float:left><div class='error-inner'> The Email field is required.</div></td>",
+        email:"<td><div class='error-left'></div float:left><div class='error-inner'> Please Enter a Valid email</div></td>",
+       		    },	
+ email2:{
+	 	required:"<td><div class='error-left'></div float:left><div class='error-inner'> The Email field is required.</div></td>",
+		email:"<td><div class='error-left'></div float:left><div class='error-inner'> Plaease Enter a Valid email.</div></td>",	
+				},
+ facebook_url_personal: {
+		required:"<td><div class='error-left'></div float:left><div class='error-inner'> This field is required.</div></td>",
+		url:"<td><div class='error-left'></div float:left><div class='error-inner'> Plaease Enter a Valid url.</div></td>",
+		},
+  facebook_url_company: {
+		required:"<td><div class='error-left'></div float:left><div class='error-inner'> This field is required.</div></td>",
+		url:"<td><div class='error-left'></div float:left><div class='error-inner'> Plaease Enter a Valid url.</div></td>",						},
+ 
+ linkedin_url: {
+		required:"<td><div class='error-left'></div float:left><div class='error-inner'> This field is required.</div></td>",
+		url:"<td><div class='error-left'></div float:left><div class='error-inner'> Plaease Enter a Valid url.</div></td>",
+			},
+ 
+ twitter: {
+		required:"<td><div class='error-left'></div float:left><div class='error-inner'> This field is required.</div></td>",
+		url:"<td><div class='error-left'></div float:left><div class='error-inner'> Plaease Enter a Valid url.</div></td>",
+					},
+ company_details:{
+		required:"<td><div class='error-left'></div float:left><div class='error-inner'> This field is required.</div></td>",					
+		},
+ 
+ state_company_registered:{
+        required:"<td><div class='error-left'></div float:left><div class='error-inner'> This field is required.</div></td>",
+					},
+   country:{
+        required:"<td><div class='error-left'></div float:left><div class='error-inner'> This field is required.</div></td>",
+					},		
+ seeking_company:{
+                   required:"<td><div class='error-left'></div float:left>   <div class='error-inner'>The seeking company field is required.</div></td>"
+		},
+		
+ investment_size:{
+	                   required:"<td><div class='error-left'></div>                 <div class='error-inner'>this field is required.</div></td>"
+					},
+ min_amt:{
+		required: "<td><div class='error-left'></div float:left><div class='error-inner'> minimum amount field is required.</div></td>",
+		},
+ max_amt:{
+		required:"<td><div class='error-left'></div><div class='error-inner'>                     The maximum amount field is required.</div></td>",
+					},
+ 
+ ownership_share:{
+		required:"<td><div class='error-left'></div float:left>     <div class='error-inner'> ownership share field is required.</div></td>"
+		},
+ control_percentage:{
+            required: "<td><div class='error-left'></div float:left>           <div class='error-inner'>The control percentage field is required.</div></td>",
+		},
+ investor_details:{
+		required:"<td><div class='error-left'></div float:left>               <div class='error-inner'>The Investor details field is required.</div></td>",
+		},
+ experience_in_russia:{
+		required:"<td><div class='error-left'></div float:left>             <div class='error-inner'>The Experience in Russia field is required.</div></td>",
+		},
+ experience_in_investment:{
+		required:"<td><div class='error-left'></div float:left>                <div class='error-inner'> This field is required.</div></td>",
+		},
+ portfolio:{
+		required:"<td><div class='error-left'></div float:left>               <div class='error-inner'>The portfolio field is required.</div></td>",
+		},
+ average_roi:{
+		required:"<td><div class='error-left'></div float:left>                <div class='error-inner'> The Average ROI field is required.</div></td>",
+		},
+ time_for_returns:{
+		required:"<td><div class='error-left'></div float:left>                <div class='error-inner'>The Time for Returns  field is required.</div></td>",
+		},
+ about_investment :{
+		required:"<td><div class='error-left'></div float:left>               <div class='error-inner'>The About investment field is required.</div></td>",
+		},
+ investing_experience :{
+		required:"<td><div class='error-left'></div float:left>                <div class='error-inner'>This field is required.</div></td>",
+		},
+ ratings:{
+		required:"<td><div class='error-left'></div float:left>               <div class='error-inner'>The Ratings field is required.</div></td>",
+		},
+ companies_intrested_in:{
+		required:"<td><div class='error-left'></div float:left>                <div class='error-inner'>This field is required.</div></td>",
+		},
+ investment_strategies:{
+		required:"<td><div class='error-left'></div float:left>               <div class='error-inner'>The investment strategies field is required.</div></td>",
+		},
+ competitors :{
+		required:"<td><div class='error-left'></div float:left><div class='error-inner'>The competitors field is required.</div></td>",
+		},				
+ other_company_type :{
+		required:"<td><div class='error-left'></div float:left><div class='error-inner'>This field is required.</div></td>",
+		},				
+ current_capitalization :{
+		required:"<td><div class='error-left'></div float:left><div class='error-inner'>This field is required.</div></td>"
+		},				
+
+
+
+
+	} 
+		 
+});
+	});
+</script>
+
 <div class="rightdivsite">
   <div class="clear" style="height:14px"></div>
     <div class="videodiv">
@@ -6,7 +332,7 @@
       <div class="box-heading">Investor Registration </div></div>
       <div class="box" >
 		<?php
-		if(count($getinvestor)>1){
+			if(count($getinvestor)>1){
 		 $firstname = $getinvestor['first_name']; 
 		 $lastname = $getinvestor['last_name'];
 		 $company = $getinvestor['company'];
@@ -116,8 +442,12 @@
 		 
 		}
 		
-		?>
-          <?php echo form_open('investor/investregsave');?>
+	?>
+        
+          <?php
+		
+		  $attributes = array('class' => 'investor', 'id' => 'investor');
+		   echo form_open('investor/investregsave',$attributes);?>
 
             <fieldset>
               <legend>Please fill the form to complete the registration </legend>
@@ -153,7 +483,7 @@
                             'value' => $firstname,
                         ); ?>
 
-                         <div style="float:left;margin-bottom:10px">
+                         <div style="float:left;margin-bottom:10pxp;width:50%">
                            <?php echo form_label('*First Name:', 'first_name', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                          </div>
@@ -165,7 +495,7 @@
                             'value' => $lastname,
                         ); ?>
 
-                         <div style="float:right;margin-bottom:10px">
+                         <div style="float:right;margin-bottom:10px;width:50%">
                            <?php echo form_label('*Last Name:', 'last_name', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                          </div>
@@ -177,7 +507,7 @@
                             'value' => $company,
                         ); ?>
 
-                        <div style="float:left;margin-bottom:10px">
+                        <div style="float:left;margin-bottom:10px;width:50%">
                            <?php echo form_label('*Company:', 'company', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                         </div>
@@ -242,7 +572,7 @@
                         ); ?>
                        <div style="float:left;margin-bottom:10px;width:100%">
                            <?php echo form_label('Other:', 'other', $latts); ?><br/>
-                           <?php echo form_password($atts); ?>
+                           <?php echo form_input($atts); ?>
                         </div>
                          <?php $atts = array(
                             'name' => 'address',
@@ -251,7 +581,7 @@
                             'value' => $address,
                         ); ?>
                         
-                        <div style="float:left;margin-bottom:10px">
+                        <div style="float:left;margin-bottom:10px;width:50%">
                            <?php echo form_label('*Address:', 'address', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                         </div>
@@ -263,7 +593,7 @@
                             'value' => $city,
                         ); ?>
 
-                         <div style="float:right;margin-bottom:10px">
+                         <div style="float:right;margin-bottom:10px;width:50%">
                            <?php echo form_label('*City:', 'city', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                          </div>
@@ -274,7 +604,7 @@
                             'value' => $state,
                         ); ?>
                        
-                        <div style="float:left;margin-bottom:10px">
+                        <div style="float:left;margin-bottom:10px;width:50%">
                            <?php echo form_label('*State:', 'state', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                         </div>
@@ -286,7 +616,7 @@
                             'value' => $zipcode,
                         ); ?>
 
-                         <div style="float:right;margin-bottom:10px;">
+                         <div style="float:right;margin-bottom:10px;width:50%">
                            <?php echo form_label('*Zipcode:', 'zipcode', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                          </div>
@@ -308,7 +638,7 @@
                             'size' => '35',
                             'value' => $skype,
                         ); ?>
- 						 <div style="float:left;margin-bottom:10px;">
+ 						 <div style="float:left;margin-bottom:10px;width:50%">
                            <?php echo form_label('Skype:', 'skype', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                          </div>
@@ -322,7 +652,7 @@
                         ); ?>
 
                         
-                         <div style="float:right;margin-bottom:10px;">
+                         <div style="float:right;margin-bottom:10px;width:50%">
                            <?php echo form_label('Company URL:', 'company_url', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                          </div>
@@ -334,7 +664,7 @@
                             'value' => $email1,
                         ); ?>
 
-                         <div style="float:left;margin-bottom:10px">
+                         <div style="float:left;margin-bottom:10px;width:50%">
                            <?php echo form_label('*Email1:', 'email1', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                          </div>
@@ -345,7 +675,7 @@
                             'value' => $email2,
                         ); ?>
                       
-                        <div style="float:right;margin-bottom:10px">
+                        <div style="float:right;margin-bottom:10px;width:50%">
                            <?php echo form_label('Email2:', 'email2', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                         </div>
@@ -357,7 +687,7 @@
                             'value' => $facebook_url_personal,
                         ); ?>
 
-                         <div style="float:left;margin-bottom:10px">
+                         <div style="float:left;margin-bottom:10px;width:50%">
                            <?php echo form_label('Personal Facebook Address:', 'facebook_url_personal', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                          </div>
@@ -368,7 +698,7 @@
                             'value' => $facebook_url_company,
                         ); ?>
                       
-                        <div style="float:right;margin-bottom:10px">
+                        <div style="float:right;margin-bottom:10px;width:50%">
                            <?php echo form_label('Company Facebook Address:', 'facebook_url_company', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                         </div>
@@ -380,7 +710,7 @@
                             'value' => $linkedin_url,
                         ); ?>
 
-                         <div style="float:left;margin-bottom:10px">
+                         <div style="float:left;margin-bottom:10px;width:50%">
                            <?php echo form_label('Linkedin:', 'linkedin_url', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                          </div>
@@ -390,7 +720,7 @@
                             'size' => '35',
                             'value' => $twitter,
                         ); ?>
-                        <div style="float:right;margin-bottom:10px">
+                        <div style="float:right;margin-bottom:10px;width:50%">
                            <?php echo form_label('Twitter:', 'twitter', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                         </div>
@@ -398,7 +728,7 @@
                             'name' => 'company_details',
                             'id'   => 'company_details',
                             'rows' => '7',
-							'cols' => '72',
+							'cols' => '73',
                             'value' => $company_details,
                         ); ?>
                    		<div style="float:left;margin-bottom:10px;width:100%;">
@@ -469,7 +799,7 @@
                             'name' => 'seeking_company',
                             'id'   => 'seeking_company',
                             'rows' => '7',
-							'cols' => '72',
+							'cols' => '73',
                             'value' => $seeking_company,
                         ); ?>
                         <div style="float:left;margin-bottom:10px;width:100%;">
@@ -499,7 +829,7 @@
        
                         </div>
                         <br />
-                        <div style="float:left;margin-bottom:10px">
+                        <div style="float:left;margin-bottom:10px;width:50%">
                          <?php echo form_label('*Minimum:', 'type', $latts); ?><br/>
                           <?php $atts = array(
                             'name' => 'min_amt',
@@ -510,7 +840,7 @@
                           <?php echo form_input($atts); ?>
        
                         </div>
-                        <div style="float:right;margin-bottom:10px;">
+                        <div style="float:right;margin-bottom:10px;width:50%">
                        <?php echo form_label('*Maximum', $latts); ?><br/>
 					  <?php $atts = array(
                             'name' => 'max_amt',
@@ -547,7 +877,7 @@
                             'name' => 'investor_details',
                             'id'   => 'investor_details',
                             'rows' => '7',
-							'cols' => '72',
+							'cols' => '73',
                             'value' => $investor_details,
                         ); ?>
                    		 <div style="float:left;margin-bottom:10px;width:100%;">
@@ -573,8 +903,7 @@
 					  <?php $atts = array(
                             'name' => 'experience_in_russia',
                             'id'   => 'experience_in_russia',
-                            'rows' => '7',
-							'cols' => '72',
+                            'size' => '35',
                             'value' => $experience_in_russia,
                         ); ?>
                        <?php echo form_input($atts); ?>
@@ -598,8 +927,7 @@
 					  <?php $atts = array(
                             'name' => 'portfolio',
                             'id'   => 'portfolio',
-                            'rows' => '7',
-							'cols' => '72',
+                            'size' => '73',
                             'value' => $portfolio,
                         ); ?>
                        <?php echo form_textarea($atts); ?>
@@ -738,7 +1066,7 @@
                             'id'   => 'companies_intrested_in',
                             'size' => '35',
 							'rows' => '5',
-							'cols' => '72',
+							'cols' => '73',
                             'value' => $companies_intrested_in,
                         ); ?>
                        <?php echo form_textarea($atts); ?>
@@ -750,7 +1078,7 @@
                             'id'   => 'investment_strategies',
                             'size' => '35',
 							'rows' => '5',
-							'cols' => '72',
+							'cols' => '73',
                             'value' => $investment_strategies,
                         ); ?>
                        <?php echo form_textarea($atts); ?>
@@ -763,7 +1091,7 @@
                             'id'   => 'competitors',
                             'size' => '35',
 							'rows' => '5',
-							'cols' => '72',
+							'cols' => '73',
                             'value' => $competitors,
                         ); ?>
                        <?php echo form_textarea($atts); ?>
