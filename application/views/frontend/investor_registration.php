@@ -928,6 +928,8 @@ investment_strategies:{
                             'name' => 'portfolio',
                             'id'   => 'portfolio',
                             'size' => '73',
+							'rows' => '5',
+							'cols' => '73',
                             'value' => $portfolio,
                         ); ?>
                        <?php echo form_textarea($atts); ?>
