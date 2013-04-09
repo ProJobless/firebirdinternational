@@ -37,11 +37,11 @@ Why Invest in Russia? </a></li>
     <div class="clear"></div>
     <?php if(!isset($is_project)){ ?>
     <div class="box">
-        <div class="box-heading">Latest Projects</div>
+        <div class="box-heading">Latest Companies</div>
         <div class="box-content box-category">
             <ul id="custom_accordion">
 				  <?php foreach($project as $row) { ?>
-				<li class="category57"><a class="nochild " href="<?php echo base_url(); ?>browseproject/viewproject/<?php  echo $row->id; ?>"><?php  echo $row->title; ?> </a></li>
+				<li class="category57"><a class="nochild " href="<?php echo base_url(); ?>browseproject/viewproject/<?php  echo $row->id; ?>"><?php  echo $row->company_name; ?> </a></li>
                 <?php }  ?>
             </ul>
         </div>

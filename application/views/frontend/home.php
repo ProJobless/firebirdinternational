@@ -48,10 +48,11 @@ function custom_echo($x,$z)
                 </div>
                 
                 <div class="name">
-				<b><a href="<?php echo base_url(); ?>browseproject/viewproject/<?php  echo $row->id; ?>"><?php  echo $row->title; ?></a> </b>
+				<b><a href="<?php echo base_url(); ?>browseproject/viewproject/<?php  echo $row->id; ?>"><?php  echo $row->company_name; ?></a> </b>
 			 </div>
               <div class="rating"><img alt="Based on 0 reviews."  src="images/stars-0.png"></div>
-			   <div class="description"> <?php echo custom_echo($row->description,450); ?> </div>
+			   <div class="description"> <?php echo custom_echo($row->introduction_for_investors,200); ?> </div>
+               <div class="description"> <?php echo custom_echo($row->company_details,200); ?> </div>
              </div>
              <?php }  ?>
             

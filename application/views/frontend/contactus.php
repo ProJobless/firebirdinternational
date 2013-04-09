@@ -76,7 +76,7 @@
                         ); ?>
                         <p>  
                            <?php echo form_label('Description:', 'description', $latts); ?><br/>
-                           <?php echo form_input($atts); ?>
+                           <?php echo form_textarea($atts); ?>
                         </p>
                          
                                                                       

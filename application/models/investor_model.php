@@ -26,7 +26,7 @@ class Investor_Model extends CI_Model {
 	// To fetch list of all projects in project display
 	function investor_list()
 	{
-		$query = $this->db->query("SELECT * FROM projects where status=1  ORDER BY title");
+		$query = $this->db->query("SELECT * FROM investor_registration where status=1  ORDER BY company ");
 		
 		// Checking if records found
 		if($query->num_rows())
@@ -38,6 +38,8 @@ class Investor_Model extends CI_Model {
 		// If no records found, return FALSE
 		return FALSE;
 	}
+	
+	
 
 	function addinvestor(){
 		$photograph = $this->Investor_Model->upload_file('photograph');
@@ -137,7 +139,24 @@ class Investor_Model extends CI_Model {
 	}
 	
 	
-	function _strip($res)
+	function get_investor_details($id)
+	{
+		 //echo "SELECT * FROM investor_registration where id= $id  and status = 1"; die;
+		$query=$this->db->query("SELECT * FROM investor_registration where id= $id  and status = 1"); 
+		// Checking if records found
+		if($query->num_rows())
+		{
+			// Return result
+			return $this->_strip($query->result());
+		}
+
+		// If no records found, return FALSE
+		return FALSE;
+	}
+	
+   
+   
+   function _strip($res)
 	{
 		foreach($res as $rk=>$rv)
 		foreach($res[$rk] as $k=>$v)

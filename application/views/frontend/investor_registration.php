@@ -332,7 +332,7 @@ investment_strategies:{
       <div class="box-heading">Investor Registration </div></div>
       <div class="box" >
 		<?php
-			if(count($getinvestor)>1){
+		if(count($getinvestor)>1){
 		 $firstname = $getinvestor['first_name']; 
 		 $lastname = $getinvestor['last_name'];
 		 $company = $getinvestor['company'];
@@ -442,12 +442,8 @@ investment_strategies:{
 		 
 		}
 		
-	?>
-        
-          <?php
-		
-		  $attributes = array('class' => 'investor', 'id' => 'investor');
-		   echo form_open('investor/investregsave',$attributes);?>
+		?>
+          <?php echo form_open('investor/investregsave');?>
 
             <fieldset>
               <legend>Please fill the form to complete the registration </legend>
@@ -483,7 +479,7 @@ investment_strategies:{
                             'value' => $firstname,
                         ); ?>
 
-                         <div style="float:left;margin-bottom:10pxp;width:50%">
+                         <div style="float:left;margin-bottom:10px">
                            <?php echo form_label('*First Name:', 'first_name', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                          </div>
@@ -495,7 +491,7 @@ investment_strategies:{
                             'value' => $lastname,
                         ); ?>
 
-                         <div style="float:right;margin-bottom:10px;width:50%">
+                         <div style="float:right;margin-bottom:10px">
                            <?php echo form_label('*Last Name:', 'last_name', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                          </div>
@@ -507,7 +503,7 @@ investment_strategies:{
                             'value' => $company,
                         ); ?>
 
-                        <div style="float:left;margin-bottom:10px;width:50%">
+                        <div style="float:left;margin-bottom:10px">
                            <?php echo form_label('*Company:', 'company', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                         </div>
@@ -572,7 +568,7 @@ investment_strategies:{
                         ); ?>
                        <div style="float:left;margin-bottom:10px;width:100%">
                            <?php echo form_label('Other:', 'other', $latts); ?><br/>
-                           <?php echo form_input($atts); ?>
+                           <?php echo form_password($atts); ?>
                         </div>
                          <?php $atts = array(
                             'name' => 'address',
@@ -581,7 +577,7 @@ investment_strategies:{
                             'value' => $address,
                         ); ?>
                         
-                        <div style="float:left;margin-bottom:10px;width:50%">
+                        <div style="float:left;margin-bottom:10px">
                            <?php echo form_label('*Address:', 'address', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                         </div>
@@ -593,7 +589,7 @@ investment_strategies:{
                             'value' => $city,
                         ); ?>
 
-                         <div style="float:right;margin-bottom:10px;width:50%">
+                         <div style="float:right;margin-bottom:10px">
                            <?php echo form_label('*City:', 'city', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                          </div>
@@ -604,7 +600,7 @@ investment_strategies:{
                             'value' => $state,
                         ); ?>
                        
-                        <div style="float:left;margin-bottom:10px;width:50%">
+                        <div style="float:left;margin-bottom:10px">
                            <?php echo form_label('*State:', 'state', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                         </div>
@@ -616,7 +612,7 @@ investment_strategies:{
                             'value' => $zipcode,
                         ); ?>
 
-                         <div style="float:right;margin-bottom:10px;width:50%">
+                         <div style="float:right;margin-bottom:10px;">
                            <?php echo form_label('*Zipcode:', 'zipcode', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                          </div>
@@ -638,7 +634,7 @@ investment_strategies:{
                             'size' => '35',
                             'value' => $skype,
                         ); ?>
- 						 <div style="float:left;margin-bottom:10px;width:50%">
+ 						 <div style="float:left;margin-bottom:10px;">
                            <?php echo form_label('Skype:', 'skype', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                          </div>
@@ -652,7 +648,7 @@ investment_strategies:{
                         ); ?>
 
                         
-                         <div style="float:right;margin-bottom:10px;width:50%">
+                         <div style="float:right;margin-bottom:10px;">
                            <?php echo form_label('Company URL:', 'company_url', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                          </div>
@@ -664,7 +660,7 @@ investment_strategies:{
                             'value' => $email1,
                         ); ?>
 
-                         <div style="float:left;margin-bottom:10px;width:50%">
+                         <div style="float:left;margin-bottom:10px">
                            <?php echo form_label('*Email1:', 'email1', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                          </div>
@@ -675,7 +671,7 @@ investment_strategies:{
                             'value' => $email2,
                         ); ?>
                       
-                        <div style="float:right;margin-bottom:10px;width:50%">
+                        <div style="float:right;margin-bottom:10px">
                            <?php echo form_label('Email2:', 'email2', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                         </div>
@@ -687,7 +683,7 @@ investment_strategies:{
                             'value' => $facebook_url_personal,
                         ); ?>
 
-                         <div style="float:left;margin-bottom:10px;width:50%">
+                         <div style="float:left;margin-bottom:10px">
                            <?php echo form_label('Personal Facebook Address:', 'facebook_url_personal', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                          </div>
@@ -698,7 +694,7 @@ investment_strategies:{
                             'value' => $facebook_url_company,
                         ); ?>
                       
-                        <div style="float:right;margin-bottom:10px;width:50%">
+                        <div style="float:right;margin-bottom:10px">
                            <?php echo form_label('Company Facebook Address:', 'facebook_url_company', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                         </div>
@@ -710,7 +706,7 @@ investment_strategies:{
                             'value' => $linkedin_url,
                         ); ?>
 
-                         <div style="float:left;margin-bottom:10px;width:50%">
+                         <div style="float:left;margin-bottom:10px">
                            <?php echo form_label('Linkedin:', 'linkedin_url', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                          </div>
@@ -720,7 +716,7 @@ investment_strategies:{
                             'size' => '35',
                             'value' => $twitter,
                         ); ?>
-                        <div style="float:right;margin-bottom:10px;width:50%">
+                        <div style="float:right;margin-bottom:10px">
                            <?php echo form_label('Twitter:', 'twitter', $latts); ?><br/>
                            <?php echo form_input($atts); ?>
                         </div>
@@ -728,7 +724,7 @@ investment_strategies:{
                             'name' => 'company_details',
                             'id'   => 'company_details',
                             'rows' => '7',
-							'cols' => '73',
+							'cols' => '72',
                             'value' => $company_details,
                         ); ?>
                    		<div style="float:left;margin-bottom:10px;width:100%;">
@@ -799,7 +795,7 @@ investment_strategies:{
                             'name' => 'seeking_company',
                             'id'   => 'seeking_company',
                             'rows' => '7',
-							'cols' => '73',
+							'cols' => '72',
                             'value' => $seeking_company,
                         ); ?>
                         <div style="float:left;margin-bottom:10px;width:100%;">
@@ -829,7 +825,7 @@ investment_strategies:{
        
                         </div>
                         <br />
-                        <div style="float:left;margin-bottom:10px;width:50%">
+                        <div style="float:left;margin-bottom:10px">
                          <?php echo form_label('*Minimum:', 'type', $latts); ?><br/>
                           <?php $atts = array(
                             'name' => 'min_amt',
@@ -840,7 +836,7 @@ investment_strategies:{
                           <?php echo form_input($atts); ?>
        
                         </div>
-                        <div style="float:right;margin-bottom:10px;width:50%">
+                        <div style="float:right;margin-bottom:10px;">
                        <?php echo form_label('*Maximum', $latts); ?><br/>
 					  <?php $atts = array(
                             'name' => 'max_amt',
@@ -877,7 +873,7 @@ investment_strategies:{
                             'name' => 'investor_details',
                             'id'   => 'investor_details',
                             'rows' => '7',
-							'cols' => '73',
+							'cols' => '72',
                             'value' => $investor_details,
                         ); ?>
                    		 <div style="float:left;margin-bottom:10px;width:100%;">
@@ -903,7 +899,8 @@ investment_strategies:{
 					  <?php $atts = array(
                             'name' => 'experience_in_russia',
                             'id'   => 'experience_in_russia',
-                            'size' => '35',
+                            'rows' => '7',
+							'cols' => '72',
                             'value' => $experience_in_russia,
                         ); ?>
                        <?php echo form_input($atts); ?>
@@ -927,9 +924,8 @@ investment_strategies:{
 					  <?php $atts = array(
                             'name' => 'portfolio',
                             'id'   => 'portfolio',
-                            'size' => '73',
-							'rows' => '5',
-							'cols' => '73',
+                            'rows' => '7',
+							'cols' => '72',
                             'value' => $portfolio,
                         ); ?>
                        <?php echo form_textarea($atts); ?>
@@ -1068,7 +1064,7 @@ investment_strategies:{
                             'id'   => 'companies_intrested_in',
                             'size' => '35',
 							'rows' => '5',
-							'cols' => '73',
+							'cols' => '72',
                             'value' => $companies_intrested_in,
                         ); ?>
                        <?php echo form_textarea($atts); ?>
@@ -1080,7 +1076,7 @@ investment_strategies:{
                             'id'   => 'investment_strategies',
                             'size' => '35',
 							'rows' => '5',
-							'cols' => '73',
+							'cols' => '72',
                             'value' => $investment_strategies,
                         ); ?>
                        <?php echo form_textarea($atts); ?>
@@ -1093,7 +1089,7 @@ investment_strategies:{
                             'id'   => 'competitors',
                             'size' => '35',
 							'rows' => '5',
-							'cols' => '73',
+							'cols' => '72',
                             'value' => $competitors,
                         ); ?>
                        <?php echo form_textarea($atts); ?>

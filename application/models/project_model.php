@@ -117,7 +117,7 @@ class Project_Model extends CI_Model {
 	function project_list()
 	{
 	
-		$query = $this->db->query("SELECT * FROM projects where status=1 ORDER BY title LIMIT 0 , 10");
+		$query = $this->db->query("SELECT * FROM company_registration where status=1 ORDER BY company_name");
 		
 		// Checking if records found
 		if($query->num_rows())
@@ -135,7 +135,7 @@ class Project_Model extends CI_Model {
 function projects_list()
 	{
 	
-		$query = $this->db->query("SELECT * FROM projects where status=1  ORDER BY title");
+		$query = $this->db->query("SELECT * FROM company_registration where status=1  ORDER BY company_name LIMIT 0 , 10");
 		
 		// Checking if records found
 		if($query->num_rows())
@@ -152,7 +152,7 @@ function projects_list()
 	function get_project_details($id)
 	{
 		 //echo "SELECT *  FROM `meeting_room`  where room_id= $id "; die;
-		$query=$this->db->query("SELECT * FROM projects   where id= $id  and (status = 1)");
+		$query=$this->db->query("SELECT * FROM company_registration   where id= $id  and status = 1");
 		// Checking if records found
 		if($query->num_rows())
 		{

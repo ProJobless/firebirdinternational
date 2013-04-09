@@ -15,6 +15,10 @@ class Meeting extends CI_Controller {
 		if($query){
 			$data['project'] = $query ; 
 		}
+		$this->load->model('Project_Model');
+		$query = $this->Project_Model->projects_list();
+		if($query){
+		}
 		$this->load->model('Event_Model');
 		$query = $this->Event_Model->upcoming_event_list();
 		if($query){
@@ -51,6 +55,7 @@ class Meeting extends CI_Controller {
 		if($query){
 			$data['project'] = $query ; 
 		}
+		
 		$this->load->model('Event_Model');
 		$query = $this->Event_Model->upcoming_event_list();
 		if($query){

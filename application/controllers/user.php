@@ -366,7 +366,7 @@ class User extends CI_Controller {
 		
 	}
 
-	/**
+	/**hh
 	 * Change Password
 	 */
 	function changePassword(){
@@ -379,9 +379,9 @@ class User extends CI_Controller {
 			$data['category'] = $query ; 
 		}
 		$this->load->model('Project_Model');
-		$query = $this->Project_Model->project_list();
+		$query = $this->Project_Model->projects_list();
 		if($query){
-			$data['project'] = $query ; 
+			$data['projects_list'] = $query ; 
 		}
 		$this->load->model('Event_Model');
 		$query = $this->Event_Model->upcoming_event_list();
@@ -439,7 +439,7 @@ class User extends CI_Controller {
 	public function contactus(){
 		$data = array();
 		$data['main_content'] = 'frontend/contactus';
-		$data['meta_title']  = 'contactus | Firebird International';
+		$data['meta_title']  = 'Contact us | Firebird International';
 		$this->load->model('Category_Model');
 		$query = $this->Category_Model->category_list();
 		if($query){
@@ -449,6 +449,12 @@ class User extends CI_Controller {
 		$query = $this->Project_Model->project_list();
 		if($query){
 			$data['project'] = $query ; 
+		}
+		
+		$this->load->model('Project_Model');
+		$query = $this->Project_Model->projects_list();
+		if($query){
+			$data['projects_list'] = $query ; 
 		}
 		$this->load->model('Event_Model');
 		$query = $this->Event_Model->upcoming_event_list();

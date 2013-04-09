@@ -1,23 +1,28 @@
 <div class="rightdivsite">
-  <div class="clear" style="height:14px"></div>
+  <div cl ass="clear" style="height:14px"></div>
  <div class="videodiv">
-
-       <div class="fucher_cont">
+   
+      <div class="clear"></div>
+      <div class="fucher_cont">
       <div class="box"> 
-      <div class="box-heading">Project List </div></div>
-      <?php foreach($projects_list as $row) { ?>
+      <div class="box-heading">Company List </div></div>
+      <?php foreach($project as $row) { ?>
              <div class="description01">
              	<div class="images">
-            		 <img alt="iPhone" src="http://devs.speedfundrussia.com/images/clients/logo1.png">
+            		 <img alt="" src="<?php  echo base_url().$row->image; ?>">
                 </div>
                 
                 <div class="name">
-				<b><a href="<?php echo base_url(); ?>BrowseProject/viewproject/<?php  echo $row->id; ?>"><?php  echo $row->title; ?></a> </b>
+				<b><a href="<?php echo base_url(); ?>BrowseProject/viewproject/<?php  echo $row->id; ?>"><?php  echo $row->company_name; ?></a> </b>
 			 </div>
-              <div class="rating"><img alt="Based on 0 reviews." src="<?php  echo $row->imgFile; ?>"></div>
-			   <div class="description"><?php  echo $row->description; ?></div>
+              <div class="rating">
+			  <img alt="iPhone" src="<?php echo base_url(); ?>images/stars-0.png">
+			  </div>
+
+			   <div class="description"><b>Details :-</b> <?php  echo $row->introduction_for_investors; ?></div>
+               <div class="description"><?php $row->company_details; ?></div>
              </div>
-             <?php }  ?>
+             <?php }  ?>  
             
              
       </div>
